@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dot-grid - Container Queries vs Viewport Queries</title>
+  <link rel="stylesheet" href="../dist/grid.css">
+  <style>
+    /* Demo styling */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: #283366;
+      margin: 2rem 0;
+      background: #f8f9fa;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 5rem);
+      margin: 3rem 0 2rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 2rem 0 1.5rem;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    [class^="col-"],
+    [class*=" col-"] {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      font-weight: 600;
+      min-height: 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Two-column layout for comparison */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .container-narrow {
+      max-width: 400px;
+      padding: 2rem;
+      background: #e9ecef;
+      border-radius: 1rem;
+    }
+
+    .container-wide {
+      max-width: 100%;
+      padding: 2rem;
+      background: #e9ecef;
+      border-radius: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.3rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 1.4rem;
+    }
+
+    .highlight-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Container Queries vs Viewport Queries</h1>
+    <p>Understanding the difference between modern container queries and traditional viewport queries.</p>
+
+    <!-- What are Container Queries -->
+    <section class="demo-section">
+      <h2>What are Container Queries?</h2>
+      <div class="highlight-box">
+        <p><strong>Container queries</strong> let components respond to their <em>container size</em>, not the viewport size. This makes components truly reusable!</p>
+        <p><strong>Viewport queries</strong> (media queries) respond to the browser window size.</p>
+      </div>
+      <p>In dot-grid:</p>
+      <ul>
+        <li><code>.col-md-6</code> = Container query (default, modern)</li>
+        <li><code>.col-vp-md-6</code> = Viewport query (traditional)</li>
+      </ul>
+    </section>
+
+    <!-- Side by Side Comparison -->
+    <section class="demo-section">
+      <h2>Side-by-Side Comparison</h2>
+      <p>Both containers below have the same HTML. Resize your browser to see the difference!</p>
+
+      <div class="comparison">
+        <!-- Container Query (Narrow) -->
+        <div>
+          <span class="badge">Container Query (Narrow)</span>
+          <div class="container-narrow">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <p>col-md-6</p>
+              </div>
+              <div class="col-12 col-md-6">
+                <p>col-md-6</p>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 1rem; font-size: 1.4rem;">
+            ↑ Stays stacked because container is narrow (&lt;768px)
+          </p>
+        </div>
+
+        <!-- Container Query (Wide) -->
+        <div>
+          <span class="badge">Container Query (Wide)</span>
+          <div class="container-wide">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <p>col-md-6</p>
+              </div>
+              <div class="col-12 col-md-6">
+                <p>col-md-6</p>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 1rem; font-size: 1.4rem;">
+            ↑ Becomes 2 columns because container is wide (≥768px)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Viewport Query Comparison -->
+    <section class="demo-section">
+      <h2>With Viewport Queries (Traditional)</h2>
+      <p>Same containers, but using <code>.col-vp-md-6</code> (viewport-based)</p>
+
+      <div class="comparison">
+        <!-- Viewport Query (Narrow) -->
+        <div>
+          <span class="badge">Viewport Query (Narrow)</span>
+          <div class="container-narrow">
+            <div class="row">
+              <div class="col-12 col-vp-md-6">
+                <p>col-vp-md-6</p>
+              </div>
+              <div class="col-12 col-vp-md-6">
+                <p>col-vp-md-6</p>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 1rem; font-size: 1.4rem;">
+            ↑ Changes based on viewport, not container size
+          </p>
+        </div>
+
+        <!-- Viewport Query (Wide) -->
+        <div>
+          <span class="badge">Viewport Query (Wide)</span>
+          <div class="container-wide">
+            <div class="row">
+              <div class="col-12 col-vp-md-6">
+                <p>col-vp-md-6</p>
+              </div>
+              <div class="col-12 col-vp-md-6">
+                <p>col-vp-md-6</p>
+              </div>
+            </div>
+          </div>
+          <p style="margin-top: 1rem; font-size: 1.4rem;">
+            ↑ Changes based on viewport, not container size
+          </p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Notice:</strong> Both containers look the same because they both respond to the <em>viewport size</em>, ignoring their container width.</p>
+      </div>
+    </section>
+
+    <!-- Real World Example -->
+    <section class="demo-section">
+      <h2>Real World: Sidebar Layout</h2>
+      <p>Container queries shine in asymmetric layouts!</p>
+
+      <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem; margin-top: 2rem;">
+        <!-- Sidebar -->
+        <div style="background: #dee2e6; padding: 2rem; border-radius: 1rem;">
+          <h3 style="margin-top: 0; font-size: 1.6rem;">Sidebar</h3>
+
+          <!-- Widget in narrow sidebar -->
+          <div class="row" style="background: white; padding: 1rem; border-radius: 0.5rem;">
+            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+              Widget
+            </div>
+            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+              Widget
+            </div>
+          </div>
+          <p style="font-size: 1.3rem; margin-top: 1rem;">
+            ↑ Stays stacked because sidebar is narrow
+          </p>
+        </div>
+
+        <!-- Main Content -->
+        <div style="background: #dee2e6; padding: 2rem; border-radius: 1rem;">
+          <h3 style="margin-top: 0; font-size: 1.6rem;">Main Content</h3>
+
+          <!-- Same widget in wide main area -->
+          <div class="row" style="background: white; padding: 1rem; border-radius: 0.5rem;">
+            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+              Widget
+            </div>
+            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+              Widget
+            </div>
+          </div>
+          <p style="font-size: 1.3rem; margin-top: 1rem;">
+            ↑ Becomes 2 columns because main area is wide
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top: 2rem;">
+        <p><strong>The magic:</strong> The <em>same component</em> adapts differently based on where it's placed. This is impossible with viewport queries!</p>
+      </div>
+    </section>
+
+    <!-- When to Use Each -->
+    <section class="demo-section">
+      <h2>When to Use Each</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <div style="padding: 2rem; background: #d1f4e0; border-radius: 1rem;">
+          <h3 style="margin-top: 0;">Use Container Queries</h3>
+          <ul style="margin: 0;">
+            <li>Reusable components</li>
+            <li>Card grids</li>
+            <li>Widgets that appear in different contexts</li>
+            <li>Component libraries</li>
+            <li>Most modern layouts</li>
+          </ul>
+        </div>
+        <div style="padding: 2rem; background: #fff4e5; border-radius: 1rem;">
+          <h3 style="margin-top: 0;">Use Viewport Queries</h3>
+          <ul style="margin: 0;">
+            <li>Top-level page structure</li>
+            <li>Navigation that changes with screen size</li>
+            <li>Hiding/showing elements globally</li>
+            <li>Typography that scales with viewport</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive Gap Example -->
+    <section class="demo-section">
+      <h2>Bonus: Responsive Gaps</h2>
+      <p>Gap sizes can also respond to container size!</p>
+      <div class="row gap-sm gap-md-lg gap-lg-xl">
+        <div class="col-12 col-md-4">
+          <p>Gap changes</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p>Gap changes</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <p>Gap changes</p>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;"><code>.gap-sm .gap-md-lg .gap-lg-xl</code> - Small gap initially, large at md, extra-large at lg</p>
+    </section>
+
+  </div>
+</body>
+</html>

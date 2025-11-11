@@ -1,0 +1,119 @@
+// ========================================
+// dot-grid Responsive (Container Queries)
+// ========================================
+
+@use 'variables' as *;
+
+@layer grid.responsive {
+
+  // ========================================
+  // Container Query Based Responsive Classes
+  // ========================================
+  // Modern approach: respond to container size, not viewport
+  // Classes: .col-{breakpoint}-{number}
+  // Example: .col-md-6 applies when container is >= 768px
+
+  @each $name, $size in $breakpoints {
+    @container grid (min-width: #{$size}) {
+
+      // Column span classes (col-sm-1 through col-sm-12, etc.)
+      @for $i from 1 through $grid-columns {
+        .col-#{$name}-#{$i} {
+          grid-column-end: span $i;
+        }
+      }
+
+      // Column start classes (col-start-sm-1 through col-start-sm-12, etc.)
+      @for $i from 1 through $grid-columns {
+        .col-start-#{$name}-#{$i} {
+          grid-column-start: $i;
+        }
+      }
+
+      // Responsive gap utilities
+      .gap-#{$name}-none {
+        gap: 0 !important;
+      }
+
+      .gap-#{$name}-xs {
+        gap: var(--grid-gap-xs, 0.5rem) !important;
+      }
+
+      .gap-#{$name}-sm {
+        gap: var(--grid-gap-sm, 1rem) !important;
+      }
+
+      .gap-#{$name}-md {
+        gap: var(--grid-gap-md, clamp(1rem, 2vw, 2rem)) !important;
+      }
+
+      .gap-#{$name}-lg {
+        gap: var(--grid-gap-lg, 3rem) !important;
+      }
+
+      .gap-#{$name}-xl {
+        gap: var(--grid-gap-xl, 4rem) !important;
+      }
+
+      // Responsive display utilities
+      .hidden-#{$name} {
+        display: none !important;
+      }
+
+      .block-#{$name} {
+        display: block !important;
+      }
+
+      .grid-#{$name} {
+        display: grid !important;
+      }
+
+      .flex-#{$name} {
+        display: flex !important;
+      }
+    }
+  }
+
+  // ========================================
+  // Viewport-based fallback/alternative
+  // ========================================
+  // For cases where viewport size is more relevant than container size
+  // Classes: .col-vp-{breakpoint}-{number}
+  // Example: .col-vp-md-6 applies when viewport is >= 768px
+
+  @each $name, $size in $breakpoints {
+    @media (min-width: $size) {
+
+      // Viewport-based column span
+      @for $i from 1 through $grid-columns {
+        .col-vp-#{$name}-#{$i} {
+          grid-column-end: span $i;
+        }
+      }
+
+      // Viewport-based column start
+      @for $i from 1 through $grid-columns {
+        .col-start-vp-#{$name}-#{$i} {
+          grid-column-start: $i;
+        }
+      }
+
+      // Viewport-based display utilities
+      .hidden-vp-#{$name} {
+        display: none !important;
+      }
+
+      .block-vp-#{$name} {
+        display: block !important;
+      }
+
+      .grid-vp-#{$name} {
+        display: grid !important;
+      }
+
+      .flex-vp-#{$name} {
+        display: flex !important;
+      }
+    }
+  }
+}

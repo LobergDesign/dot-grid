@@ -1,0 +1,62 @@
+{
+  "name": "dot-grid",
+  "version": "1.0.0",
+  "description": "A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support",
+  "main": "dist/grid.css",
+  "style": "dist/grid.css",
+  "sass": "src/grid.scss",
+  "exports": {
+    ".": {
+      "style": "./dist/grid.css",
+      "sass": "./src/grid.scss",
+      "default": "./dist/grid.css"
+    },
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*",
+    "./min": "./dist/grid.min.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:min",
+    "build:css": "sass src/grid.scss dist/grid.css --no-source-map",
+    "build:min": "sass src/grid.scss dist/grid.min.css --no-source-map --style=compressed",
+    "watch": "sass src/grid.scss dist/grid.css --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "css",
+    "grid",
+    "css-grid",
+    "layout",
+    "responsive",
+    "12-column",
+    "subgrid",
+    "container-queries",
+    "fluid-layout",
+    "scss",
+    "modern-css",
+    "utilities",
+    "dot-grid"
+  ],
+  "author": "Jean Loberg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lobergdesign/dot-grid"
+  },
+  "bugs": {
+    "url": "https://github.com/lobergdesign/dot-grid/issues"
+  },
+  "homepage": "https://github.com/lobergdesign/dot-grid#readme",
+  "devDependencies": {
+    "sass": "^1.80.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
