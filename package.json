@@ -1,6 +1,6 @@
 {
   "name": "@lobergdesign/dot-grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support",
   "main": "dist/grid.css",
   "style": "dist/grid.css",
