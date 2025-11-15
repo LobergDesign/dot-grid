@@ -43,7 +43,7 @@
     }
 
     [class^="col-"],
-    [class*=" col-"] {
+    [class*=" grid-c-"] {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border-radius: 1rem;
@@ -113,7 +113,7 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="grid-w">
     <h1>Container Queries vs Viewport Queries</h1>
     <p>Understanding the difference between modern container queries and traditional viewport queries.</p>
 
@@ -141,11 +141,11 @@
         <div>
           <span class="badge">Container Query (Narrow)</span>
           <div class="container-narrow">
-            <div class="row">
-              <div class="col-12 col-md-6">
+            <div class="grid-r">
+              <div class="grid-c-12 grid-c-md-6">
                 <p>col-md-6</p>
               </div>
-              <div class="col-12 col-md-6">
+              <div class="grid-c-12 grid-c-md-6">
                 <p>col-md-6</p>
               </div>
             </div>
@@ -159,11 +159,11 @@
         <div>
           <span class="badge">Container Query (Wide)</span>
           <div class="container-wide">
-            <div class="row">
-              <div class="col-12 col-md-6">
+            <div class="grid-r">
+              <div class="grid-c-12 grid-c-md-6">
                 <p>col-md-6</p>
               </div>
-              <div class="col-12 col-md-6">
+              <div class="grid-c-12 grid-c-md-6">
                 <p>col-md-6</p>
               </div>
             </div>
@@ -185,11 +185,11 @@
         <div>
           <span class="badge">Viewport Query (Narrow)</span>
           <div class="container-narrow">
-            <div class="row">
-              <div class="col-12 col-vp-md-6">
+            <div class="grid-r">
+              <div class="grid-c-12 grid-c-vp-md-6">
                 <p>col-vp-md-6</p>
               </div>
-              <div class="col-12 col-vp-md-6">
+              <div class="grid-c-12 grid-c-vp-md-6">
                 <p>col-vp-md-6</p>
               </div>
             </div>
@@ -203,11 +203,11 @@
         <div>
           <span class="badge">Viewport Query (Wide)</span>
           <div class="container-wide">
-            <div class="row">
-              <div class="col-12 col-vp-md-6">
+            <div class="grid-r">
+              <div class="grid-c-12 grid-c-vp-md-6">
                 <p>col-vp-md-6</p>
               </div>
-              <div class="col-12 col-vp-md-6">
+              <div class="grid-c-12 grid-c-vp-md-6">
                 <p>col-vp-md-6</p>
               </div>
             </div>
@@ -233,11 +233,11 @@
           <h3 style="margin-top: 0; font-size: 1.6rem;">Sidebar</h3>
 
           <!-- Widget in narrow sidebar -->
-          <div class="row" style="background: white; padding: 1rem; border-radius: 0.5rem;">
-            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+          <div class="grid-r" style="background: white; padding: 1rem; border-radius: 0.5rem;">
+            <div class="grid-c-12 grid-c-md-6" style="min-height: 6rem; font-size: 1.2rem;">
               Widget
             </div>
-            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+            <div class="grid-c-12 grid-c-md-6" style="min-height: 6rem; font-size: 1.2rem;">
               Widget
             </div>
           </div>
@@ -251,11 +251,11 @@
           <h3 style="margin-top: 0; font-size: 1.6rem;">Main Content</h3>
 
           <!-- Same widget in wide main area -->
-          <div class="row" style="background: white; padding: 1rem; border-radius: 0.5rem;">
-            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+          <div class="grid-r" style="background: white; padding: 1rem; border-radius: 0.5rem;">
+            <div class="grid-c-12 grid-c-md-6" style="min-height: 6rem; font-size: 1.2rem;">
               Widget
             </div>
-            <div class="col-12 col-md-6" style="min-height: 6rem; font-size: 1.2rem;">
+            <div class="grid-c-12 grid-c-md-6" style="min-height: 6rem; font-size: 1.2rem;">
               Widget
             </div>
           </div>
@@ -297,22 +297,6 @@
     </section>
 
     <!-- Responsive Gap Example -->
-    <section class="demo-section">
-      <h2>Bonus: Responsive Gaps</h2>
-      <p>Gap sizes can also respond to container size!</p>
-      <div class="row gap-sm gap-md-lg gap-lg-xl">
-        <div class="col-12 col-md-4">
-          <p>Gap changes</p>
-        </div>
-        <div class="col-12 col-md-4">
-          <p>Gap changes</p>
-        </div>
-        <div class="col-12 col-md-4">
-          <p>Gap changes</p>
-        </div>
-      </div>
-      <p style="margin-top: 1rem;"><code>.gap-sm .gap-md-lg .gap-lg-xl</code> - Small gap initially, large at md, extra-large at lg</p>
-    </section>
 
   </div>
 </body>

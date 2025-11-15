@@ -1,307 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dot-grid - Basic Examples</title>
-  <link rel="stylesheet" href="../dist/grid.css">
-  <style>
-    /* Demo styling only */
-    * {
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dot-grid - Basic Examples</title>
+    <link rel="stylesheet" href="../dist/grid.css" />
+    <style>
+      /* Demo styling only */
+      * {
+        box-sizing: border-box;
+      }
 
-    html {
-      font-size: 62.5%;
-    }
+      html {
+        font-size: 62.5%;
+      }
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 1.6rem;
-      line-height: 1.6;
-      color: #283366;
-      margin: 2rem 0;
-      background: #f8f9fa;
-    }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        color: #283366;
+        margin: 2rem 0;
+        background: #f8f9fa;
+      }
 
-    h1 {
-      font-size: clamp(3rem, 6vw, 5rem);
-      margin: 3rem 0 2rem;
-      color: #1a1f3a;
-    }
+      h1 {
+        font-size: clamp(3rem, 6vw, 5rem);
+        margin: 3rem 0 2rem;
+        color: #1a1f3a;
+      }
 
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin: 2rem 0 1.5rem;
-      color: #2a3555;
-    }
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 2rem 0 1.5rem;
+        color: #2a3555;
+      }
 
-    h3 {
-      font-size: 1.8rem;
-      margin: 1.5rem 0 1rem;
-      color: #3a4565;
-    }
+      h3 {
+        font-size: 1.8rem;
+        margin: 1.5rem 0 1rem;
+        color: #3a4565;
+      }
 
-    [class^="col-"],
-    [class*=" col-"] {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: clamp(0.8rem, 2vw, 1.5rem);
-      padding: clamp(1rem, 2vw, 2rem);
-      font-weight: 600;
-      min-height: 8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      [class^='grid-c-'],
+      [class*=' grid-c-'] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: clamp(0.8rem, 2vw, 1.5rem);
+        padding: clamp(1rem, 2vw, 2rem);
+        font-weight: 600;
+        min-height: 8rem;
+      }
 
-    .demo-section {
-      background: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 3rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+      .demo-section {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
 
-    code {
-      background: #f4f4f4;
-      padding: 0.2rem 0.6rem;
-      border-radius: 0.3rem;
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: 1.4rem;
-    }
+      code {
+        background: #f4f4f4;
+        padding: 0.2rem 0.6rem;
+        border-radius: 0.3rem;
+        font-family: 'Monaco', 'Courier New', monospace;
+        font-size: 1.4rem;
+      }
 
-    .large-section [class^="col-"],
-    .large-section [class*=" col-"] {
-      min-height: 15rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <h1>dot-grid - Basic Examples</h1>
-    <p>Demonstrating core grid features and column spanning.</p>
+      .large-section [class^='grid-c-'],
+      .large-section [class*=' grid-c-'] {
+        min-height: 15rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-w">
+      <h1>dot-grid - Basic Examples</h1>
+      <p>Demonstrating core grid features and column spanning.</p>
 
-    <!-- All Columns -->
-    <section class="demo-section">
-      <h2>All Column Sizes (1-12)</h2>
-      <div class="row">
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-        <div class="col-1"><p>col-1</p></div>
-      </div>
-      <div class="row">
-        <div class="col-2"><p>col-2</p></div>
-        <div class="col-2"><p>col-2</p></div>
-        <div class="col-2"><p>col-2</p></div>
-        <div class="col-2"><p>col-2</p></div>
-        <div class="col-2"><p>col-2</p></div>
-        <div class="col-2"><p>col-2</p></div>
-      </div>
-      <div class="row">
-        <div class="col-3"><p>col-3</p></div>
-        <div class="col-3"><p>col-3</p></div>
-        <div class="col-3"><p>col-3</p></div>
-        <div class="col-3"><p>col-3</p></div>
-      </div>
-      <div class="row">
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-      </div>
-      <div class="row">
-        <div class="col-5"><p>col-5</p></div>
-        <div class="col-7"><p>col-7</p></div>
-      </div>
-      <div class="row">
-        <div class="col-6"><p>col-6</p></div>
-        <div class="col-6"><p>col-6</p></div>
-      </div>
-      <div class="row">
-        <div class="col-8"><p>col-8</p></div>
-        <div class="col-4"><p>col-4</p></div>
-      </div>
-      <div class="row">
-        <div class="col-9"><p>col-9</p></div>
-        <div class="col-3"><p>col-3</p></div>
-      </div>
-      <div class="row">
-        <div class="col-10"><p>col-10</p></div>
-        <div class="col-2"><p>col-2</p></div>
-      </div>
-      <div class="row">
-        <div class="col-11"><p>col-11</p></div>
-        <div class="col-1"><p>col-1</p></div>
-      </div>
-      <div class="row">
-        <div class="col-12"><p>col-12</p></div>
-      </div>
-    </section>
-
-    <!-- Responsive -->
-    <section class="demo-section">
-      <h2>Responsive Columns</h2>
-      <p>Resize your browser to see columns adapt! Uses container queries.</p>
-      <div class="row">
-        <div class="col-12 col-sm-10 col-md-6 col-lg-3">
-          <p>col-12 col-sm-10 col-md-6 col-lg-3</p>
+      <!-- All Columns -->
+      <section class="demo-section">
+        <h2>All Column Sizes (1-12)</h2>
+        <div class="grid-r">
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
         </div>
-        <div class="col-12 col-sm-10 col-md-6 col-lg-3">
-          <p>col-12 col-sm-10 col-md-6 col-lg-3</p>
+        <div class="grid-r">
+          <div class="grid-c-2"><p>grid-c-2</p></div>
+          <div class="grid-c-2"><p>grid-c-2</p></div>
+          <div class="grid-c-2"><p>grid-c-2</p></div>
+          <div class="grid-c-2"><p>grid-c-2</p></div>
+          <div class="grid-c-2"><p>grid-c-2</p></div>
+          <div class="grid-c-2"><p>grid-c-2</p></div>
         </div>
-        <div class="col-12 col-sm-10 col-md-6 col-lg-3">
-          <p>col-12 col-sm-10 col-md-6 col-lg-3</p>
+        <div class="grid-r">
+          <div class="grid-c-3"><p>grid-c-3</p></div>
+          <div class="grid-c-3"><p>grid-c-3</p></div>
+          <div class="grid-c-3"><p>grid-c-3</p></div>
+          <div class="grid-c-3"><p>grid-c-3</p></div>
         </div>
-        <div class="col-12 col-sm-10 col-md-6 col-lg-3">
-          <p>col-12 col-sm-10 col-md-6 col-lg-3</p>
+        <div class="grid-r">
+          <div class="grid-c-4"><p>grid-c-4</p></div>
+          <div class="grid-c-4"><p>grid-c-4</p></div>
+          <div class="grid-c-4"><p>grid-c-4</p></div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6 col-md-4 col-lg-6">
-          <p>col-6 col-md-4 col-lg-6</p>
+        <div class="grid-r">
+          <div class="grid-c-5"><p>grid-c-5</p></div>
+          <div class="grid-c-7"><p>grid-c-7</p></div>
         </div>
-        <div class="col-6 col-md-4 col-lg-6">
-          <p>col-6 col-md-4 col-lg-6</p>
+        <div class="grid-r">
+          <div class="grid-c-6"><p>grid-c-6</p></div>
+          <div class="grid-c-6"><p>grid-c-6</p></div>
         </div>
-        <div class="col-6 col-md-4 col-lg-6">
-          <p>col-6 col-md-4 col-lg-6</p>
+        <div class="grid-r">
+          <div class="grid-c-8"><p>grid-c-8</p></div>
+          <div class="grid-c-4"><p>grid-c-4</p></div>
         </div>
-        <div class="col-6 col-md-4 col-lg-6">
-          <p>col-6 col-md-4 col-lg-6</p>
+        <div class="grid-r">
+          <div class="grid-c-9"><p>grid-c-9</p></div>
+          <div class="grid-c-3"><p>grid-c-3</p></div>
         </div>
-      </div>
-    </section>
+        <div class="grid-r">
+          <div class="grid-c-10"><p>grid-c-10</p></div>
+          <div class="grid-c-2"><p>grid-c-2</p></div>
+        </div>
+        <div class="grid-r">
+          <div class="grid-c-11"><p>grid-c-11</p></div>
+          <div class="grid-c-1"><p>grid-c-1</p></div>
+        </div>
+        <div class="grid-r">
+          <div class="grid-c-12"><p>grid-c-12</p></div>
+        </div>
+      </section>
 
-    <!-- Column Start -->
-    <section class="demo-section">
-      <h2>Column Start Position</h2>
-      <p>Use <code>col-start-{n}</code> to position columns</p>
-      <div class="row">
-        <div class="col-3">
-          <p>col-3</p>
+      <!-- Responsive -->
+      <section class="demo-section">
+        <h2>Responsive Columns</h2>
+        <p>Resize your browser to see columns adapt! Uses container queries.</p>
+        <div class="grid-r">
+          <div class="grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3">
+            <p>grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3</p>
+          </div>
+          <div class="grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3">
+            <p>grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3</p>
+          </div>
+          <div class="grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3">
+            <p>grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3</p>
+          </div>
+          <div class="grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3">
+            <p>grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-3 col-start-4">
-          <p>col-3 col-start-4</p>
+        <div class="grid-r">
+          <div class="grid-c-6 grid-c-md-4 grid-c-lg-6">
+            <p>grid-c-6 grid-c-md-4 grid-c-lg-6</p>
+          </div>
+          <div class="grid-c-6 grid-c-md-4 grid-c-lg-6">
+            <p>grid-c-6 grid-c-md-4 grid-c-lg-6</p>
+          </div>
+          <div class="grid-c-6 grid-c-md-4 grid-c-lg-6">
+            <p>grid-c-6 grid-c-md-4 grid-c-lg-6</p>
+          </div>
+          <div class="grid-c-6 grid-c-md-4 grid-c-lg-6">
+            <p>grid-c-6 grid-c-md-4 grid-c-lg-6</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-3 col-start-7">
-          <p>col-3 col-start-7</p>
+      </section>
+
+      <!-- Column Start -->
+      <section class="demo-section">
+        <h2>Column Start Position</h2>
+        <p>Use <code>grid-c-start-{n}</code> to position columns</p>
+        <div class="grid-r">
+          <div class="grid-c-3">
+            <p>grid-c-3</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-3 col-start-10">
-          <p>col-3 col-start-10</p>
+        <div class="grid-r">
+          <div class="grid-c-3 grid-c-start-4">
+            <p>grid-c-3 grid-c-start-4</p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Responsive Start -->
-    <section class="demo-section">
-      <h2>Responsive Column Start</h2>
-      <div class="row">
-        <div class="col-10 col-start-3 col-md-7 col-start-md-6">
-          <p>col-10 col-start-3 col-md-7 col-start-md-6</p>
+        <div class="grid-r">
+          <div class="grid-c-3 grid-c-start-7">
+            <p>grid-c-3 grid-c-start-7</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 col-start-md-4 col-start-lg-7 col-lg-6">
-          <p>col-md-9 col-start-md-4 col-start-lg-7 col-lg-6</p>
+        <div class="grid-r">
+          <div class="grid-c-3 grid-c-start-10">
+            <p>grid-c-3 grid-c-start-10</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Gap Utilities -->
-    <section class="demo-section">
-      <h2>Gap Utilities</h2>
-
-      <h3><code>.gap-none</code> / <code>.no-gap</code></h3>
-      <p>Removes all gaps</p>
-      <div class="row no-gap">
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-      </div>
-
-      <h3><code>.gap-b-none</code> / <code>.no-gap-b</code></h3>
-      <p>Removes row gap (bottom gap)</p>
-      <div class="row no-gap-b">
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-6"><p>col-6</p></div>
-        <div class="col-6"><p>col-6</p></div>
-      </div>
-
-      <h3><code>.gap-sides-none</code> / <code>.no-gap-sides</code></h3>
-      <p>Removes column gap (side gaps)</p>
-      <div class="row no-gap-sides">
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-4"><p>col-4</p></div>
-        <div class="col-6"><p>col-6</p></div>
-        <div class="col-6"><p>col-6</p></div>
-      </div>
-
-      <h3>Different Gap Sizes</h3>
-      <div class="row gap-xl">
-        <div class="col-4"><p>gap-xl (4rem)</p></div>
-        <div class="col-4"><p>gap-xl (4rem)</p></div>
-        <div class="col-4"><p>gap-xl (4rem)</p></div>
-      </div>
-    </section>
-
-    <!-- Placement -->
-    <section class="demo-section">
-      <h2>Content Placement</h2>
-      <p>Pattern: <code>.place-{vertical}-{horizontal}</code></p>
-      <div class="row large-section">
-        <div class="col-4 place-t-l"><p>place-t-l</p></div>
-        <div class="col-4 place-t-c"><p>place-t-c</p></div>
-        <div class="col-4 place-t-r"><p>place-t-r</p></div>
-        <div class="col-4 place-c-l"><p>place-c-l</p></div>
-        <div class="col-4 place-c-c"><p>place-c-c</p></div>
-        <div class="col-4 place-c-r"><p>place-c-r</p></div>
-        <div class="col-4 place-b-l"><p>place-b-l</p></div>
-        <div class="col-4 place-b-c"><p>place-b-c</p></div>
-        <div class="col-4 place-b-r"><p>place-b-r</p></div>
-      </div>
-    </section>
-
-    <!-- Flexbox Justify -->
-    <section class="demo-section">
-      <h2>Justify Content (Flexbox)</h2>
-      <div class="row">
-        <div class="col-12 justify-space-between">
-          <p>Left</p>
-          <p>Right</p>
+      <!-- Responsive Start -->
+      <section class="demo-section">
+        <h2>Responsive Column Start</h2>
+        <div class="grid-r">
+          <div class="grid-c-10 grid-c-start-3 grid-c-md-7 grid-c-start-md-6">
+            <p>grid-c-10 grid-c-start-3 grid-c-md-7 grid-c-start-md-6</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 justify-space-around">
-          <p>Item</p>
-          <p>Item</p>
-          <p>Item</p>
+        <div class="grid-r">
+          <div
+            class="grid-c-md-9 grid-c-start-md-4 grid-c-start-lg-7 grid-c-lg-6"
+          >
+            <p>grid-c-md-9 grid-c-start-md-4 grid-c-start-lg-7 grid-c-lg-6</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 justify-center">
-          <p>Centered</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-  </div>
-</body>
+      <!-- Gap Utilities -->
+      <section class="demo-section">
+        <h2>Gap Utilities</h2>
+
+        <h3><code>.no-gap</code></h3>
+        <p>Removes all gaps</p>
+        <div class="grid-r no-gap">
+          <div class="grid-c-4"><p>grid-c-4</p></div>
+          <div class="grid-c-4"><p>grid-c-4</p></div>
+          <div class="grid-c-4"><p>grid-c-4</p></div>
+        </div>
+      </section>
+
+      <!-- Placement -->
+      <section class="demo-section">
+        <h2>Content Placement</h2>
+        <p>Pattern: <code>.place-{vertical}-{horizontal}</code></p>
+        <div class="grid-r large-section">
+          <div class="grid-c-4 place-t-l"><p>place-t-l</p></div>
+          <div class="grid-c-4 place-t-c"><p>place-t-c</p></div>
+          <div class="grid-c-4 place-t-r"><p>place-t-r</p></div>
+          <div class="grid-c-4 place-c-l"><p>place-c-l</p></div>
+          <div class="grid-c-4 place-c-c"><p>place-c-c</p></div>
+          <div class="grid-c-4 place-c-r"><p>place-c-r</p></div>
+          <div class="grid-c-4 place-b-l"><p>place-b-l</p></div>
+          <div class="grid-c-4 place-b-c"><p>place-b-c</p></div>
+          <div class="grid-c-4 place-b-r"><p>place-b-r</p></div>
+        </div>
+      </section>
+
+      <!-- Flexbox Justify -->
+      <section class="demo-section">
+        <h2>Justify Content (Flexbox)</h2>
+        <div class="grid-r">
+          <div class="grid-c-12 justify-space-between">
+            <p>Left</p>
+            <p>Right</p>
+          </div>
+        </div>
+        <div class="grid-r">
+          <div class="grid-c-12 justify-space-around">
+            <p>Item</p>
+            <p>Item</p>
+            <p>Item</p>
+          </div>
+        </div>
+        <div class="grid-r">
+          <div class="grid-c-12 justify-center">
+            <p>Centered</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
 </html>

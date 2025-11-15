@@ -19,25 +19,31 @@ A modern, flexible 12-column CSS Grid system with container queries, fluid layou
 ### npm
 
 ```bash
-npm install dot-grid
+npm install @lobergdesign/dot-grid
 ```
 
 Then import in your CSS/SCSS:
 
 ```css
-@import 'dot-grid';
+@import '@lobergdesign/dot-grid';
 ```
 
 Or in your HTML:
 
 ```html
-<link rel="stylesheet" href="node_modules/dot-grid/dist/grid.min.css">
+<link
+  rel="stylesheet"
+  href="node_modules/@lobergdesign/dot-grid/dist/grid.min.css"
+/>
 ```
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/dot-grid@latest/dist/grid.min.css">
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@lobergdesign/dot-grid@latest/dist/grid.min.css"
+/>
 ```
 
 ## 🚀 Quick Start
@@ -45,11 +51,11 @@ Or in your HTML:
 ### Basic Grid
 
 ```html
-<div class="wrap">
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">Column 1</div>
-    <div class="col-12 col-md-6 col-lg-4">Column 2</div>
-    <div class="col-12 col-md-6 col-lg-4">Column 3</div>
+<div class="grid-w">
+  <div class="grid-r">
+    <div class="grid-c-12 grid-c-md-6 grid-c-lg-4">Column 1</div>
+    <div class="grid-c-12 grid-c-md-6 grid-c-lg-4">Column 2</div>
+    <div class="grid-c-12 grid-c-md-6 grid-c-lg-4">Column 3</div>
   </div>
 </div>
 ```
@@ -57,7 +63,7 @@ Or in your HTML:
 ### Fluid/Auto Grid (No Breakpoints Needed!)
 
 ```html
-<div class="wrap">
+<div class="grid-w">
   <div class="grid-auto-fit">
     <div>Card 1</div>
     <div>Card 2</div>
@@ -73,35 +79,39 @@ Or in your HTML:
 
 #### Container
 
-- `.wrap` - Centers content with max-width and responsive padding
+- `.grid-w` - Centers content with max-width and responsive padding
 
 #### Grid Container
 
-- `.row` - Creates a 12-column grid container with container query support
+- `.grid-r` - Creates a 12-column grid container with container query support
 
 ### Column Classes
 
 #### Basic Columns
 
 ```html
-<div class="col-1">...</div>  <!-- Spans 1 column -->
-<div class="col-6">...</div>  <!-- Spans 6 columns (50%) -->
-<div class="col-12">...</div> <!-- Spans 12 columns (100%) -->
+<div class="grid-c-1">...</div>
+<!-- Spans 1 column -->
+<div class="grid-c-6">...</div>
+<!-- Spans 6 columns (50%) -->
+<div class="grid-c-12">...</div>
+<!-- Spans 12 columns (100%) -->
 ```
 
-All classes from `.col-1` through `.col-12` are available.
+All classes from `.grid-c-1` through `.grid-c-12` are available.
 
 #### Container Query Responsive (Modern, Recommended)
 
 Responds to the **container width**, not viewport:
 
 ```html
-<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+<div class="grid-c-12 grid-c-sm-6 grid-c-md-4 grid-c-lg-3">
   Responsive column
 </div>
 ```
 
 **Breakpoints:**
+
 - `sm`: 640px
 - `md`: 768px
 - `lg`: 1024px
@@ -113,9 +123,7 @@ Responds to the **container width**, not viewport:
 If you need viewport-based responsive behavior instead:
 
 ```html
-<div class="col-vp-md-6 col-vp-lg-4">
-  Responds to viewport size
-</div>
+<div class="grid-c-vp-md-6 grid-c-vp-lg-4">Responds to viewport size</div>
 ```
 
 ### Column Positioning
@@ -123,15 +131,13 @@ If you need viewport-based responsive behavior instead:
 #### Start Position
 
 ```html
-<div class="col-3 col-start-4">
-  Starts at column 4, spans 3 columns
-</div>
+<div class="grid-c-3 grid-c-start-4">Starts at column 4, spans 3 columns</div>
 ```
 
 Responsive start positions:
 
 ```html
-<div class="col-6 col-start-md-7 col-start-lg-4">
+<div class="grid-c-6 grid-c-start-md-7 grid-c-start-lg-4">
   Different start positions at different sizes
 </div>
 ```
@@ -139,25 +145,8 @@ Responsive start positions:
 ### Gap Utilities
 
 ```html
-<!-- Different gap sizes -->
-<div class="row gap-none">...</div>  <!-- No gap -->
-<div class="row gap-xs">...</div>    <!-- 0.5rem -->
-<div class="row gap-sm">...</div>    <!-- 1rem -->
-<div class="row gap-md">...</div>    <!-- clamp(1rem, 2vw, 2rem) - default -->
-<div class="row gap-lg">...</div>    <!-- 3rem -->
-<div class="row gap-xl">...</div>    <!-- 4rem -->
-
-<!-- Directional gaps -->
-<div class="row gap-b-none">...</div>       <!-- No row gap -->
-<div class="row gap-sides-none">...</div>   <!-- No column gap -->
-```
-
-Responsive gaps:
-
-```html
-<div class="row gap-sm gap-md-lg gap-lg-xl">
-  Different gaps at different sizes
-</div>
+<!-- Remove all gaps -->
+<div class="grid-r no-gap">...</div>
 ```
 
 ### Subgrid
@@ -165,12 +154,12 @@ Responsive gaps:
 Perfect alignment for nested grids:
 
 ```html
-<div class="row">
-  <div class="col-12 row-subgrid">
+<div class="grid-r">
+  <div class="grid-c-12 grid-r-subgrid">
     <!-- These inherit the parent's column tracks -->
-    <div class="col-4">Aligned 1</div>
-    <div class="col-4">Aligned 2</div>
-    <div class="col-4">Aligned 3</div>
+    <div class="grid-c-4">Aligned 1</div>
+    <div class="grid-c-4">Aligned 2</div>
+    <div class="grid-c-4">Aligned 3</div>
   </div>
 </div>
 ```
@@ -199,19 +188,19 @@ Automatically fits as many columns as possible:
 
 ```html
 <!-- Adapts to 2 columns on larger screens -->
-<div class="row-fluid-2">
+<div class="grid-r-fluid-2">
   <div>Item 1</div>
   <div>Item 2</div>
   <div>Item 3</div>
 </div>
 
-<!-- Also available: row-fluid-3, row-fluid-4 -->
+<!-- Also available: grid-r-fluid-3, grid-r-fluid-4 -->
 ```
 
 #### RAM Pattern (Repeat Auto Minmax)
 
 ```html
-<div class="row-ram" style="--col-min: 250px">
+<div class="grid-r-ram" style="--col-min: 250px">
   <div>Equal column 1</div>
   <div>Equal column 2</div>
   <div>Equal column 3</div>
@@ -220,9 +209,9 @@ Automatically fits as many columns as possible:
 
 #### Other Fluid Patterns
 
-- `.row-intrinsic` - Columns size based on content
-- `.row-even` - Even columns sharing space equally
-- `.row-dense` - Fills gaps in the grid (masonry style)
+- `.grid-r-intrinsic` - Columns size based on content
+- `.grid-r-even` - Even columns sharing space equally
+- `.grid-r-dense` - Fills gaps in the grid (masonry style)
 
 ### Content Placement
 
@@ -230,9 +219,9 @@ Align content within a column:
 
 ```html
 <!-- Pattern: place-{vertical}-{horizontal} -->
-<div class="col-6 place-t-l">Top Left</div>
-<div class="col-6 place-c-c">Center Center</div>
-<div class="col-6 place-b-r">Bottom Right</div>
+<div class="grid-c-6 place-t-l">Top Left</div>
+<div class="grid-c-6 place-c-c">Center Center</div>
+<div class="grid-c-6 place-b-r">Bottom Right</div>
 ```
 
 **Vertical options:** `t` (top), `c` (center), `b` (bottom)
@@ -243,21 +232,13 @@ Align content within a column:
 For flex-based alignment within columns:
 
 ```html
-<div class="col-12 justify-between">
+<div class="grid-c-12 justify-between">
   <span>Left</span>
   <span>Right</span>
 </div>
 ```
 
 Available: `.justify-start`, `.justify-end`, `.justify-center`, `.justify-between`, `.justify-around`, `.justify-evenly`
-
-### Aspect Ratio
-
-```html
-<div class="col-4 aspect-square">Square</div>
-<div class="col-8 aspect-video">16:9 Video</div>
-<div class="col-6 aspect-4-3">4:3</div>
-```
 
 ### Display Utilities
 
@@ -276,18 +257,81 @@ Available: `.justify-start`, `.justify-end`, `.justify-center`, `.justify-betwee
 ### Sizing Utilities
 
 ```html
-<div class="col-min">Shrinks to min content</div>
-<div class="col-max">Expands to max content</div>
-<div class="col-fit">Fits content</div>
-<div class="col-auto">Auto-sized</div>
+<div class="grid-c-min">Shrinks to min content</div>
+<div class="grid-c-max">Expands to max content</div>
+<div class="grid-c-fit">Fits content</div>
+<div class="grid-c-auto">Auto-sized</div>
 ```
 
-### Order
+## 🌲 Tree Shaking / PurgeCSS
 
-```html
-<div class="col-6 order-last">Appears last</div>
-<div class="col-6 order-first">Appears first</div>
+Like Tailwind CSS, you can significantly reduce the CSS bundle size by removing unused classes using PurgeCSS or similar tools.
+
+### Setup with PurgeCSS
+
+1. **Install PurgeCSS:**
+
+```bash
+npm install --save-dev @fullhuman/postcss-purgecss
 ```
+
+2. **Copy the configuration:**
+
+Copy `purgecss.config.js` from the dot-grid package to your project root, or create your own:
+
+```js
+// purgecss.config.js
+module.exports = {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  css: ['./node_modules/@lobergdesign/dot-grid/dist/grid.css'],
+  safelist: {
+    greedy: [
+      /^grid-c-\d{1,2}$/,
+      /^grid-c-(sm|md|lg|xl|xxl)-\d{1,2}$/,
+      // ... see purgecss.config.js for full list
+    ],
+  },
+}
+```
+
+3. **Add to your build process:**
+
+```json
+// package.json
+{
+  "scripts": {
+    "purge": "purgecss --config ./purgecss.config.js --output ./dist/grid.purged.css"
+  }
+}
+```
+
+### With PostCSS
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('@fullhuman/postcss-purgecss')({
+      content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+      safelist: {
+        greedy: [
+          /^grid-c-/,
+          /^grid-r-/,
+          /^place-/,
+          // Add more patterns as needed
+        ],
+      },
+    }),
+  ],
+}
+```
+
+### Expected Results
+
+- **Full build:** ~28KB / 19KB minified
+- **With PurgeCSS:** Typically 2-5KB depending on usage
+
+See `purgecss.config.js` in the package for complete safelist patterns.
 
 ## 🎨 Customization
 
@@ -302,16 +346,12 @@ Override CSS custom properties in your own stylesheet:
   --grid-columns: 16;
 
   /* Change container max width */
-  --grid-wrap-max-width: 1400px;
-  --grid-wrap-width: 95vw;
-
-  /* Customize gap scale */
-  --grid-gap-sm: 0.75rem;
-  --grid-gap-lg: 4rem;
+  --grid-w-max-width: 1400px;
+  --grid-w-width: 95vw;
 
   /* Customize fluid layouts */
   --grid-auto-min: 300px; /* For grid-auto-fit */
-  --col-min-width: 250px;  /* For col-fluid */
+  --grid-c-min-width: 250px; /* For grid-c-fluid */
 }
 ```
 
@@ -328,10 +368,10 @@ $breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1600px
+  xxl: 1600px,
 );
 
-@use 'dot-grid/src/grid';
+@use '@lobergdesign/dot-grid/src/grid';
 ```
 
 ## 🌐 Browser Support
@@ -352,19 +392,6 @@ See the `/examples` directory for complete working examples:
 - `fluid-layout.html` - Auto-responsive fluid grids
 - `subgrid.html` - Subgrid alignment examples
 
-## 🆚 Migration from Original CodePen
-
-### Breaking Changes
-
-1. **Container queries by default** - Responsive classes now use `@container` instead of `@media`
-   - **Migration:** Use `.col-vp-{size}-{num}` if you need viewport-based behavior
-
-2. **Placement utilities fixed** - `align-items: top` → `align-items: start`
-   - **Migration:** No action needed, now uses correct CSS values
-
-3. **New breakpoints** - Added `xxl` (1536px), adjusted `lg` from 1025px to 1024px
-   - **Migration:** Update breakpoints in your HTML if using exact pixel values
-
 ### New Features (Additive)
 
 - Subgrid support
@@ -377,7 +404,3 @@ See the `/examples` directory for complete working examples:
 ## 📄 License
 
 MIT © Jean Loberg
-
-## 🤝 Contributing
-
-Issues and pull requests welcome at [github.com/lobergdesign/dot-grid](https://github.com/lobergdesign/dot-grid)

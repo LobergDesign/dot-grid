@@ -7,7 +7,6 @@
 @use 'variables' as *;
 
 @layer grid.fluid {
-
   // ========================================
   // Auto-responsive Grid (no breakpoints needed)
   // ========================================
@@ -37,15 +36,15 @@
   // ========================================
 
   // Automatic column sizing
-  .col-auto {
+  .grid-c-auto {
     grid-column: auto;
     width: auto;
   }
 
   // Fluid columns with minimum width
-  .col-fluid {
-    min-width: var(--col-min-width, 200px);
-    flex: 1 1 var(--col-min-width, 200px);
+  .grid-c-fluid {
+    min-width: var(--grid-c-min-width, 200px);
+    flex: 1 1 var(--grid-c-min-width, 200px);
   }
 
   // ========================================
@@ -53,31 +52,43 @@
   // ========================================
 
   // Row that adapts to 2 columns on larger screens
-  .row-fluid-2 {
+  .grid-r-fluid-2 {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(calc(50% - var(--grid-gap, #{$grid-gap-default}) / 2), 100%), 1fr)
+      minmax(
+        min(calc(50% - var(--grid-gap, #{$grid-gap-default}) / 2), 100%),
+        1fr
+      )
     );
     gap: var(--grid-gap, $grid-gap-default);
   }
 
   // Row that adapts to 3 columns on larger screens
-  .row-fluid-3 {
+  .grid-r-fluid-3 {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(calc(33.333% - var(--grid-gap, #{$grid-gap-default}) * 2 / 3), 100%), 1fr)
+      minmax(
+        min(
+          calc(33.333% - var(--grid-gap, #{$grid-gap-default}) * 2 / 3),
+          100%
+        ),
+        1fr
+      )
     );
     gap: var(--grid-gap, $grid-gap-default);
   }
 
   // Row that adapts to 4 columns on larger screens
-  .row-fluid-4 {
+  .grid-r-fluid-4 {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(calc(25% - var(--grid-gap, #{$grid-gap-default}) * 3 / 4), 100%), 1fr)
+      minmax(
+        min(calc(25% - var(--grid-gap, #{$grid-gap-default}) * 3 / 4), 100%),
+        1fr
+      )
     );
     gap: var(--grid-gap, $grid-gap-default);
   }
@@ -87,17 +98,14 @@
   // ========================================
   // Automatically creates equal columns that wrap
 
-  .row-ram {
+  .grid-r-ram {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(var(--col-min, 250px), 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(var(--col-min, 250px), 1fr));
     gap: var(--grid-gap, $grid-gap-default);
 
     // Prevent children from having explicit column spans
     & > * {
-      grid-column: auto !important;
+      grid-column: auto;
     }
   }
 
@@ -106,14 +114,14 @@
   // ========================================
 
   // Columns size based on content
-  .row-intrinsic {
+  .grid-r-intrinsic {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0, max-content));
     gap: var(--grid-gap, $grid-gap-default);
   }
 
   // Even columns that share space equally
-  .row-even {
+  .grid-r-even {
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
@@ -125,7 +133,7 @@
   // ========================================
 
   // Fills gaps in the grid (Pinterest/Masonry style)
-  .row-dense {
+  .grid-r-dense {
     grid-auto-flow: dense;
   }
 
@@ -134,14 +142,19 @@
   // ========================================
   // Override with CSS variables for custom fluid behavior
 
-  .row-flexible {
+  .grid-r-flexible {
     display: grid;
     grid-template-columns: repeat(
       auto-fit,
       minmax(
         clamp(
           var(--col-min, 200px),
-          calc((100% - var(--grid-gap, #{$grid-gap-default}) * (var(--col-count, 3) - 1)) / var(--col-count, 3)),
+          calc(
+            (
+                100% - var(--grid-gap, #{$grid-gap-default}) *
+                  (var(--col-count, 3) - 1)
+              ) / var(--col-count, 3)
+          ),
           1fr
         ),
         1fr

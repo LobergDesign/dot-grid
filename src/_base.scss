@@ -9,14 +9,17 @@
 
 @layer grid.base {
   // Wrapper/Container
-  .wrap {
-    width: var(--grid-wrap-width, $wrap-width);
-    max-width: var(--grid-wrap-max-width, $wrap-max-width);
+  .grid-w {
+    width: clamp(
+      var(--grid-w-min-width),
+      var(--grid-w-width),
+      var(--grid-w-max-width)
+    );
     margin-inline: auto; // logical property for RTL support
   }
 
   // Row - The grid container
-  .row {
+  .grid-r {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns, $grid-columns), 1fr);
     gap: var(--grid-gap, $grid-gap-default);
@@ -33,44 +36,44 @@
   }
 
   // Base column class
-  .col {
+  .grid-c {
     grid-column-end: span var(--grid-columns, $grid-columns);
   }
 
-  // Generate column span classes (col-1 to col-12)
+  // Generate column span classes (grid-c-1 to grid-c-12)
   @for $i from 1 through $grid-columns {
-    .col-#{$i} {
+    .grid-c-#{$i} {
       grid-column-end: span $i;
     }
   }
 
-  // Generate column start classes (col-start-1 to col-start-12)
+  // Generate column start classes (grid-c-start-1 to grid-c-start-12)
   @for $i from 1 through $grid-columns {
-    .col-start-#{$i} {
+    .grid-c-start-#{$i} {
       grid-column-start: $i;
     }
   }
 
   // Subgrid support (modern CSS Grid Level 2)
-  .row-subgrid {
+  .grid-r-subgrid {
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
 
     // Inherit gap from parent or use custom
-    &:not([style*="gap"]) {
+    &:not([style*='gap']) {
       gap: inherit;
     }
   }
 
-  .col-subgrid {
+  .grid-c-subgrid {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: 1 / -1;
   }
 
   // Nesting support - nested rows maintain grid structure
-  .row .row {
+  .grid-r .grid-r {
     grid-column: 1 / -1;
     padding-block-end: 0; // remove bottom padding on nested rows
   }

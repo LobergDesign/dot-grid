@@ -5,46 +5,12 @@
 @use 'variables' as *;
 
 @layer grid.utilities {
-
   // ========================================
   // Gap Utilities
   // ========================================
 
-  .gap-none,
   .no-gap {
-    gap: var(--grid-gap-none, 0) !important;
-  }
-
-  .gap-xs {
-    gap: var(--grid-gap-xs, 0.5rem) !important;
-  }
-
-  .gap-sm {
-    gap: var(--grid-gap-sm, 1rem) !important;
-  }
-
-  .gap,
-  .gap-md {
-    gap: var(--grid-gap-md, clamp(1rem, 2vw, 2rem)) !important;
-  }
-
-  .gap-lg {
-    gap: var(--grid-gap-lg, 3rem) !important;
-  }
-
-  .gap-xl {
-    gap: var(--grid-gap-xl, 4rem) !important;
-  }
-
-  // Gap directional utilities
-  .gap-b-none,
-  .no-gap-b {
-    row-gap: 0 !important;
-  }
-
-  .gap-sides-none,
-  .no-gap-sides {
-    column-gap: 0 !important;
+    gap: 0;
   }
 
   // ========================================
@@ -61,7 +27,7 @@
 
   // Top row
   .place-t-l {
-    @include placement(start, start); // Fixed: 'top' is not a valid value
+    @include placement(start, start);
   }
 
   .place-t-c {
@@ -135,44 +101,20 @@
   }
 
   // ========================================
-  // Aspect Ratio Utilities (Modern CSS)
-  // ========================================
-
-  .aspect-square {
-    aspect-ratio: 1 / 1;
-  }
-
-  .aspect-video {
-    aspect-ratio: 16 / 9;
-  }
-
-  .aspect-4-3 {
-    aspect-ratio: 4 / 3;
-  }
-
-  .aspect-21-9 {
-    aspect-ratio: 21 / 9;
-  }
-
-  .aspect-auto {
-    aspect-ratio: auto;
-  }
-
-  // ========================================
   // Min/Max Content Utilities
   // ========================================
 
-  .col-min {
+  .grid-c-min {
     width: min-content;
     grid-column: auto;
   }
 
-  .col-max {
+  .grid-c-max {
     width: max-content;
     grid-column: auto;
   }
 
-  .col-fit {
+  .grid-c-fit {
     width: fit-content;
     grid-column: auto;
   }
@@ -182,22 +124,6 @@
   // ========================================
 
   .hidden {
-    display: none !important;
-  }
-
-  // ========================================
-  // Order Utilities (Grid/Flex)
-  // ========================================
-
-  .order-first {
-    order: -1;
-  }
-
-  .order-last {
-    order: 999;
-  }
-
-  .order-none {
-    order: 0;
+    display: none;
   }
 }

@@ -8,26 +8,12 @@ $breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1280px,
-  xxl: 1536px
+  xxl: 1536px,
 );
 
 // Grid configuration
 $grid-columns: 12;
 $grid-gap-default: clamp(1rem, 2vw, 2rem);
-
-// Gap scale
-$gap-scale: (
-  none: 0,
-  xs: 0.5rem,
-  sm: 1rem,
-  md: clamp(1rem, 2vw, 2rem), // default
-  lg: 3rem,
-  xl: 4rem
-);
-
-// Wrapper/Container
-$wrap-max-width: 180rem;
-$wrap-width: 90vw;
 
 // CSS Custom Properties
 // These will be output as CSS variables for user customization
@@ -44,24 +30,12 @@ $wrap-width: 90vw;
   --grid-bp-xxl: 1536px;
 
   // Container
-  --grid-wrap-max-width: #{$wrap-max-width};
-  --grid-wrap-width: #{$wrap-width};
-
-  // Gap scale
-  --grid-gap-none: 0;
-  --grid-gap-xs: 0.5rem;
-  --grid-gap-sm: 1rem;
-  --grid-gap-md: clamp(1rem, 2vw, 2rem);
-  --grid-gap-lg: 3rem;
-  --grid-gap-xl: 4rem;
+  --grid-w-max-width: 190rem;
+  --grid-w-width: 80vw;
+  --grid-w-min-width: 36vw;
 }
 
 // Helper function to get breakpoint value
 @function breakpoint($name) {
   @return map-get($breakpoints, $name);
-}
-
-// Helper function to get gap value
-@function gap($name) {
-  @return map-get($gap-scale, $name);
 }
