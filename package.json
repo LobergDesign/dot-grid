@@ -1,6 +1,6 @@
 {
   "name": "@lobergdesign/dot-grid",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support",
   "main": "dist/grid.css",
   "style": "dist/grid.css",
@@ -28,7 +28,8 @@
     "build:css": "sass src/grid.scss dist/grid.css --no-source-map",
     "build:min": "sass src/grid.scss dist/grid.min.css --no-source-map --style=compressed",
     "watch": "sass src/grid.scss dist/grid.css --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "deploy": "npx np --no-tests"
   },
   "keywords": [
     "css",
