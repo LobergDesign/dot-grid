@@ -1,6 +1,6 @@
 {
   "name": "@lobergdesign/dot-grid",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support",
   "main": "dist/grid.css",
   "style": "dist/grid.css",
@@ -28,6 +28,7 @@
     "build:css": "sass src/grid.scss dist/grid.css --no-source-map",
     "build:min": "sass src/grid.scss dist/grid.min.css --no-source-map --style=compressed",
     "watch": "sass src/grid.scss dist/grid.css --watch",
+    "release": "npm run build && changelogen --release && npm publish && git push --follow-tags",
     "prepublishOnly": "npm run build",
     "deploy": "npx np --no-tests"
   },
@@ -59,7 +60,8 @@
   "homepage": "https://github.com/lobergdesign/dot-grid#readme",
   "devDependencies": {
     "sass": "^1.80.0",
-    "np": "^10.2.0"
+    "np": "^10.2.0",
+    "changelogen": "^0.6.2"
   },
   "engines": {
     "node": ">=14.0.0"
