@@ -1,6 +1,6 @@
 {
   "name": "@lobergdesign/dot-grid",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support",
   "main": "dist/grid.css",
   "style": "dist/grid.css",
@@ -19,9 +19,7 @@
     "dist",
     "src",
     "README.md",
-    "LICENSE",
-    "purgecss.config.js",
-    ".purgecssrc.json"
+    "LICENSE"
   ],
   "scripts": {
     "build": "npm run build:css && npm run build:min",
