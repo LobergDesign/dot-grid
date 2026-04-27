@@ -46,6 +46,24 @@ Or in your HTML:
 />
 ```
 
+## 💡 IDE IntelliSense
+
+Get class name completions in `class=""` and `className=""` attributes with the [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css) VS Code extension.
+
+Add this to your project's `.vscode/settings.json`:
+
+```json
+{
+  "css.styleSheets": [
+    "./node_modules/@lobergdesign/dot-grid/dist/grid.css"
+  ]
+}
+```
+
+Once configured, typing `grid-c-` or `place-` in any `class` attribute will show completions for all dot-grid classes.
+
+> **Plain HTML projects** — if you link the CSS via `<link>`, VS Code picks up class names automatically with no extra config.
+
 ## 🚀 Quick Start
 
 ### Basic Grid
