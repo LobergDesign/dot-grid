@@ -1,7 +1,7 @@
 {
   "name": "@lobergdesign/dot-grid",
-  "version": "1.0.12",
-  "description": "A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support",
+  "version": "2.0.0",
+  "description": "A modern, flexible CSS Grid system with container queries, and subgrid support",
   "main": "dist/grid.css",
   "style": "dist/grid.css",
   "sass": "src/grid.scss",
@@ -36,10 +36,8 @@
     "css-grid",
     "layout",
     "responsive",
-    "12-column",
     "subgrid",
     "container-queries",
-    "fluid-layout",
     "scss",
     "modern-css",
     "utilities",
@@ -57,11 +55,11 @@
   },
   "homepage": "https://github.com/lobergdesign/dot-grid#readme",
   "devDependencies": {
-    "sass": "^1.80.0",
-    "np": "^10.2.0",
+    "sass": "^1.99.0",
+    "np": "^11.2.0",
     "changelogen": "^0.6.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=24.0.0"
   }
 }

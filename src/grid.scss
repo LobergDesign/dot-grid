@@ -2,7 +2,6 @@
 @use 'base';
 @use 'utilities';
 @use 'responsive';
-@use 'fluid';
 
 // ========================================
 // Export CSS Custom Properties
@@ -31,14 +30,6 @@ BASIC GRID:
   </div>
 </div>
 
-FLUID GRID (auto-responsive):
-<div class="grid-w">
-  <div class="grid-auto-fit">
-    <div>Card 1</div>
-    <div>Card 2</div>
-    <div>Card 3</div>
-  </div>
-</div>
 
 SUBGRID:
 <div class="grid-r">
