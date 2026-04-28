@@ -46,46 +46,4 @@
       }
     }
   }
-
-  // ========================================
-  // Viewport-based fallback/alternative
-  // ========================================
-  // For cases where viewport size is more relevant than container size
-  // Classes: .grid-c-vp-{breakpoint}-{number}
-  // Example: .grid-c-vp-md-6 applies when viewport is >= 768px
-
-  @each $name, $size in $breakpoints {
-    @media (min-width: $size) {
-      // Viewport-based column span
-      @for $i from 1 through $grid-columns {
-        .grid-c-vp-#{$name}-#{$i} {
-          grid-column-end: span $i;
-        }
-      }
-
-      // Viewport-based column start
-      @for $i from 1 through $grid-columns {
-        .grid-c-start-vp-#{$name}-#{$i} {
-          grid-column-start: $i;
-        }
-      }
-
-      // Viewport-based display utilities
-      .hidden-vp-#{$name} {
-        display: none;
-      }
-
-      .block-vp-#{$name} {
-        display: block;
-      }
-
-      .grid-vp-#{$name} {
-        display: grid;
-      }
-
-      .flex-vp-#{$name} {
-        display: flex;
-      }
-    }
-  }
 }

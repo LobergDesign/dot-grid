@@ -54,9 +54,7 @@ Add this to your project's `.vscode/settings.json`:
 
 ```json
 {
-  "css.styleSheets": [
-    "./node_modules/@lobergdesign/dot-grid/dist/grid.css"
-  ]
+  "css.styleSheets": ["./node_modules/@lobergdesign/dot-grid/dist/grid.css"]
 }
 ```
 
@@ -135,14 +133,6 @@ Responds to the **container width**, not viewport:
 - `lg`: 1024px
 - `xl`: 1280px
 - `xxl`: 1536px
-
-#### Viewport-based Responsive (Alternative)
-
-If you need viewport-based responsive behavior instead:
-
-```html
-<div class="grid-c-vp-md-6 grid-c-vp-lg-4">Responds to viewport size</div>
-```
 
 ### Column Positioning
 
@@ -267,9 +257,6 @@ Available: `.justify-start`, `.justify-end`, `.justify-center`, `.justify-betwee
 <!-- Responsive (container-based) -->
 <div class="hidden-md">Hidden on medium+ containers</div>
 <div class="block-lg">Shows as block on large+ containers</div>
-
-<!-- Responsive (viewport-based) -->
-<div class="hidden-vp-md">Hidden on medium+ viewports</div>
 ```
 
 ### Sizing Utilities
