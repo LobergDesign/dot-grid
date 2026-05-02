@@ -275,14 +275,33 @@ Opt a column out of the normal span system and let its content dictate width. Al
 
 ## 🎨 Customization
 
-Override CSS custom properties in your own stylesheet:
+### Build-time (SCSS)
+If you are using SCSS, you can customize the grid and **generate all utility classes** for your specific needs (e.g., an 18-column grid).
+
+```scss
+// main.scss
+@use "@lobergdesign/dot-grid" with (
+  $grid-columns: 18,        // Generates .grid-c-1 through .grid-c-18
+  $grid-gap-default: 2rem,  // Changes the default gap
+  $breakpoints: (           // Override all breakpoints
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+  )
+);
+```
+
+### Runtime (CSS)
+You can also override the configuration at runtime using CSS Custom Properties. Note that this changes the grid layout but **does not generate new utility classes** if they weren't created at build-time.
 
 ```css
 :root {
   /* Change default gap */
   --grid-gap: 1.5rem;
 
-  /* Change column count (affects all calculations) */
+  /* Change column count (affects all grid calculations) */
   --grid-columns: 16;
 
   /* Change container max width */
@@ -293,25 +312,6 @@ Override CSS custom properties in your own stylesheet:
   --grid-auto-min: 300px; /* For grid-auto-fit */
   --grid-c-min-width: 250px; /* For grid-c-fluid */
 }
-```
-
-### Using SCSS Source
-
-For advanced customization, import the SCSS source:
-
-```scss
-// Override variables before import
-$grid-columns: 16;
-$grid-gap-default: 2rem;
-$breakpoints: (
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1600px,
-);
-
-@use '@lobergdesign/dot-grid/src/grid';
 ```
 
 ## 🌐 Browser Support

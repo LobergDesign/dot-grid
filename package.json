@@ -1,6 +1,6 @@
 {
   "name": "@lobergdesign/dot-grid",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A modern, flexible CSS Grid system with container queries, and subgrid support",
   "main": "dist/grid.css",
   "style": "dist/grid.css",
