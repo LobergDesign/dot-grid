@@ -1,6 +1,6 @@
 # dot-grid
 
-A modern, flexible 12-column CSS Grid system with container queries, fluid layouts, and subgrid support.
+A modern, flexible CSS Grid system with container queries, fluid layouts, and subgrid support.
 
 ## ✨ Features
 
@@ -58,8 +58,6 @@ Add this to your project's `.vscode/settings.json`:
 }
 ```
 
-Once configured, typing `grid-c-` or `place-` in any `class` attribute will show completions for all dot-grid classes.
-
 > **Plain HTML projects** — if you link the CSS via `<link>`, VS Code picks up class names automatically with no extra config.
 
 ## 🚀 Quick Start
@@ -72,19 +70,6 @@ Once configured, typing `grid-c-` or `place-` in any `class` attribute will show
     <div class="grid-c-12 grid-c-md-6 grid-c-lg-4">Column 1</div>
     <div class="grid-c-12 grid-c-md-6 grid-c-lg-4">Column 2</div>
     <div class="grid-c-12 grid-c-md-6 grid-c-lg-4">Column 3</div>
-  </div>
-</div>
-```
-
-### Fluid/Auto Grid (No Breakpoints Needed!)
-
-```html
-<div class="grid-w">
-  <div class="grid-auto-fit">
-    <div>Card 1</div>
-    <div>Card 2</div>
-    <div>Card 3</div>
-    <!-- Automatically wraps based on available space -->
   </div>
 </div>
 ```
@@ -223,21 +208,25 @@ Automatically fits as many columns as possible:
 
 ### Content Placement
 
-Align content within a column:
+Place items within a grid cell using `place-{vertical}-{horizontal}`. Sets `display: grid` + `align-items` + `justify-items` on the column.
 
 ```html
-<!-- Pattern: place-{vertical}-{horizontal} -->
-<div class="grid-c-6 place-t-l">Top Left</div>
-<div class="grid-c-6 place-c-c">Center Center</div>
-<div class="grid-c-6 place-b-r">Bottom Right</div>
+<div class="grid-c-4 place-t-l">Top left</div>
+<div class="grid-c-4 place-c-c">Center center</div>
+<div class="grid-c-4 place-b-r">Bottom right</div>
 ```
 
-**Vertical options:** `t` (top), `c` (center), `b` (bottom)
-**Horizontal options:** `l` (left), `c` (center), `r` (right)
+All 9 positions:
+
+|              | `l` (start)  | `c` (center)  | `r` (end)    |
+|--------------|-------------|--------------|-------------|
+| `t` (top)    | `.place-t-l` | `.place-t-c`  | `.place-t-r` |
+| `c` (center) | `.place-c-l` | `.place-c-c`  | `.place-c-r` |
+| `b` (bottom) | `.place-b-l` | `.place-b-c`  | `.place-b-r` |
 
 ### Flexbox Utilities
 
-For flex-based alignment within columns:
+Sets `display: flex` and controls how children are distributed along the main axis.
 
 ```html
 <div class="grid-c-12 justify-between">
@@ -246,27 +235,43 @@ For flex-based alignment within columns:
 </div>
 ```
 
-Available: `.justify-start`, `.justify-end`, `.justify-center`, `.justify-between`, `.justify-around`, `.justify-evenly`
+| Class | `justify-content` | Use when |
+|---|---|---|
+| `.justify-start` | `flex-start` | Pack items to the left |
+| `.justify-end` | `flex-end` | Pack items to the right |
+| `.justify-center` | `center` | Center items |
+| `.justify-between` | `space-between` | First/last flush to edges, equal gaps between |
+| `.justify-around` | `space-around` | Equal space around each item (half-size gaps at edges) |
+| `.justify-evenly` | `space-evenly` | Equal space between all gaps including edges |
 
 ### Display Utilities
 
-```html
-<!-- Static -->
-<div class="hidden">Always hidden</div>
+Container-query responsive show/hide. Activates when the enclosing `.grid-r` container reaches the given breakpoint.
 
-<!-- Responsive (container-based) -->
-<div class="hidden-md">Hidden on medium+ containers</div>
-<div class="block-lg">Shows as block on large+ containers</div>
+```html
+<div class="hidden-md">Hidden on md+ containers</div>
+<div class="block-lg">Visible as block on lg+ containers</div>
+<div class="flex-xl">Visible as flex on xl+ containers</div>
+<div class="grid-xxl">Visible as grid on xxl+ containers</div>
 ```
+
+Available suffixes: `-sm`, `-md`, `-lg`, `-xl`, `-xxl`
 
 ### Sizing Utilities
 
+Opt a column out of the normal span system and let its content dictate width. All three set `grid-column: auto`.
+
 ```html
-<div class="grid-c-min">Shrinks to min content</div>
-<div class="grid-c-max">Expands to max content</div>
-<div class="grid-c-fit">Fits content</div>
-<div class="grid-c-auto">Auto-sized</div>
+<div class="grid-c-min">Shrinks to the narrowest the content allows</div>
+<div class="grid-c-max">Expands to the widest the content could be (no wrapping)</div>
+<div class="grid-c-fit">Like max-content but capped at the available space</div>
 ```
+
+| Class | `width` value | Best for |
+|---|---|---|
+| `.grid-c-min` | `min-content` | Labels, short tags |
+| `.grid-c-max` | `max-content` | Content you never want to wrap |
+| `.grid-c-fit` | `fit-content` | Content that should fill but not overflow |
 
 ## 🎨 Customization
 

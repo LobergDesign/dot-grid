@@ -81,18 +81,15 @@
     @include justify(flex-end);
   }
 
-  .justify-center,
-  .justify-space-center {
+  .justify-center {
     @include justify(center);
   }
 
-  .justify-between,
-  .justify-space-between {
+  .justify-between {
     @include justify(space-between);
   }
 
-  .justify-around,
-  .justify-space-around {
+  .justify-around {
     @include justify(space-around);
   }
 
