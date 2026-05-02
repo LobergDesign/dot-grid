@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v3.0.0
+
+[compare changes](https://github.com/lobergdesign/dot-grid/compare/v2.2.0...v3.0.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Update example files and docs !breaking ([f7e76e9](https://github.com/lobergdesign/dot-grid/commit/f7e76e9))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update example files and docs !breaking ([f7e76e9](https://github.com/lobergdesign/dot-grid/commit/f7e76e9))
+
+### ❤️ Contributors
+
+- Jean Loberg Hansen ([@LobergDesign](https://github.com/LobergDesign))
+
 ## v2.2.0
 
 [compare changes](https://github.com/lobergdesign/dot-grid/compare/v1.0.12...v2.2.0)
