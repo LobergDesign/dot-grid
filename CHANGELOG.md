@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.2.0
+
+[compare changes](https://github.com/lobergdesign/dot-grid/compare/v1.0.12...v2.2.0)
+
+### 🚀 Enhancements
+
+- Simplify to container-query-first and bump to v2.0.0 ([e9fb1ea](https://github.com/lobergdesign/dot-grid/commit/e9fb1ea))
+- Cleanup and update docs ([408e78a](https://github.com/lobergdesign/dot-grid/commit/408e78a))
+
+### 🏡 Chore
+
+- **release:** V2.1.0 ([a50cc25](https://github.com/lobergdesign/dot-grid/commit/a50cc25))
+
+### ❤️ Contributors
+
+- Jean Loberg Hansen ([@LobergDesign](https://github.com/LobergDesign))
+
 ## v2.1.0
 
 [compare changes](https://github.com/lobergdesign/dot-grid/compare/v1.0.12...v2.1.0)
