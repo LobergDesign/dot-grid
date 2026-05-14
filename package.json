@@ -11,6 +11,7 @@
       "sass": "./src/grid.scss",
       "default": "./dist/grid.css"
     },
+    "./scss": "./src/grid.scss",
     "./dist/*": "./dist/*",
     "./src/*": "./src/*",
     "./min": "./dist/grid.min.css"
