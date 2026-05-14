@@ -15,24 +15,18 @@ $breakpoints: (
 $grid-columns: 12 !default;
 $grid-gap-default: clamp(1rem, 2vw, 2rem) !default;
 
+// Container configuration
+$grid-w-max-width: 190rem !default;
+$grid-w-width: 90vw !default;
+$grid-w-min-width: 36vw !default;
+
 // CSS Custom Properties
-// These will be output as CSS variables for user customization
 :root {
-  // Grid
   --grid-columns: #{$grid-columns};
   --grid-gap: #{$grid-gap-default};
-
-  // Breakpoints (for reference/documentation)
-  --grid-bp-sm: 640px;
-  --grid-bp-md: 768px;
-  --grid-bp-lg: 1024px;
-  --grid-bp-xl: 1280px;
-  --grid-bp-xxl: 1536px;
-
-  // Container
-  --grid-w-max-width: 190rem;
-  --grid-w-width: 90vw;
-  --grid-w-min-width: 36vw;
+  --grid-w-max-width: #{$grid-w-max-width};
+  --grid-w-width: #{$grid-w-width};
+  --grid-w-min-width: #{$grid-w-min-width};
 }
 
 // Helper function to get breakpoint value
