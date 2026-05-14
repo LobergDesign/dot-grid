@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,7 +18,10 @@
       }
 
       body {
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
         font-size: 1.4rem;
         line-height: 1.65;
         color: #555;
@@ -99,7 +102,10 @@
         text-decoration: none;
         padding: 0.45rem 2rem;
         border-left: 2px solid transparent;
-        transition: color 0.15s, background 0.15s, border-left-color 0.15s;
+        transition:
+          color 0.15s,
+          background 0.15s,
+          border-left-color 0.15s;
         line-height: 1.5;
       }
 
@@ -159,7 +165,8 @@
         margin-bottom: 0;
       }
 
-      ul, ol {
+      ul,
+      ol {
         padding-left: 2rem;
         margin-bottom: 1rem;
       }
@@ -498,17 +505,14 @@
   </head>
   <body>
     <div class="page-layout">
-
       <!-- ============================================================
            SIDEBAR
            ============================================================ -->
       <aside class="sidebar" aria-label="Documentation navigation">
         <div class="sidebar-brand">
           <span class="sidebar-brand-name">dot-grid</span>
-          <span class="sidebar-brand-version">v2.2.0</span>
         </div>
         <nav class="sidebar-nav">
-
           <div class="sidebar-group">
             <span class="sidebar-group-label">Core</span>
             <a class="sidebar-link" href="#how-it-works">How it Works</a>
@@ -519,18 +523,32 @@
 
           <div class="sidebar-group">
             <span class="sidebar-group-label">Alignment &amp; Utilities</span>
-            <a class="sidebar-link" href="#content-placement">Content Placement</a>
+            <a class="sidebar-link" href="#content-placement"
+              >Content Placement</a
+            >
             <a class="sidebar-link" href="#flexbox-justify">Flexbox Justify</a>
-            <a class="sidebar-link" href="#intrinsic-sizing">Intrinsic Sizing</a>
+            <a class="sidebar-link" href="#intrinsic-sizing"
+              >Intrinsic Sizing</a
+            >
           </div>
 
           <div class="sidebar-group">
             <span class="sidebar-group-label">Responsive</span>
-            <a class="sidebar-link" href="#container-queries">Container Queries</a>
-            <a class="sidebar-link" href="#responsive-columns">Responsive Columns</a>
-            <a class="sidebar-link" href="#responsive-start">Responsive Start</a>
-            <a class="sidebar-link" href="#display-utilities">Display Utilities</a>
-            <a class="sidebar-link" href="#container-vs-viewport">Container vs Viewport</a>
+            <a class="sidebar-link" href="#container-queries"
+              >Container Queries</a
+            >
+            <a class="sidebar-link" href="#responsive-columns"
+              >Responsive Columns</a
+            >
+            <a class="sidebar-link" href="#responsive-start"
+              >Responsive Start</a
+            >
+            <a class="sidebar-link" href="#display-utilities"
+              >Display Utilities</a
+            >
+            <a class="sidebar-link" href="#container-vs-viewport"
+              >Container vs Viewport</a
+            >
           </div>
 
           <div class="sidebar-group">
@@ -539,7 +557,6 @@
             <a class="sidebar-link" href="#nested-rows">Nested Rows</a>
             <a class="sidebar-link" href="#css-variables">CSS Variables</a>
           </div>
-
         </nav>
       </aside>
 
@@ -547,7 +564,6 @@
            MAIN CONTENT
            ============================================================ -->
       <main class="main-content">
-
         <!-- ============================================================
              CORE
              ============================================================ -->
@@ -560,9 +576,18 @@
           <h2>How dot-grid Works</h2>
           <p>Every dot-grid layout uses three nested layers:</p>
           <ul>
-            <li><code>.grid-w</code> — centered wrapper with configurable max-width (<code>margin-inline: auto</code>)</li>
-            <li><code>.grid-r</code> — 12-column grid row. Also registers itself as a named <strong>container</strong> for its children</li>
-            <li><code>.grid-c-{n}</code> — column spanning <em>n</em> of the 12 columns</li>
+            <li>
+              <code>.grid-w</code> — centered wrapper with configurable
+              max-width (<code>margin-inline: auto</code>)
+            </li>
+            <li>
+              <code>.grid-r</code> — 12-column grid row. Also registers itself
+              as a named <strong>container</strong> for its children
+            </li>
+            <li>
+              <code>.grid-c-{n}</code> — column spanning <em>n</em> of the 12
+              columns
+            </li>
           </ul>
           <pre><code>&lt;div class="grid-w"&gt;
   &lt;div class="grid-r"&gt;
@@ -572,7 +597,14 @@
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
           <div class="callout">
-            <p><strong>Why responsive classes work:</strong> <code>.grid-r</code> sets <code>container-type: inline-size; container-name: grid</code>. Responsive child classes like <code>.grid-c-md-6</code> watch whether <em>their own row</em> is ≥768px wide — not the viewport. This is what makes components reusable in any layout context.</p>
+            <p>
+              <strong>Why responsive classes work:</strong>
+              <code>.grid-r</code> sets
+              <code>container-type: inline-size; container-name: grid</code>.
+              Responsive child classes like <code>.grid-c-md-6</code> watch
+              whether <em>their own row</em> is ≥768px wide — not the viewport.
+              This is what makes components reusable in any layout context.
+            </p>
           </div>
         </section>
 
@@ -580,7 +612,7 @@
         <section id="column-sizes" class="demo-section">
           <h2>All Column Sizes (1–12)</h2>
 
-          <div class="grid-demo" style="grid-template-columns: repeat(12, 1fr);">
+          <div class="grid-demo" style="grid-template-columns: repeat(12, 1fr)">
             <div class="demo-cell">1</div>
             <div class="demo-cell">1</div>
             <div class="demo-cell">1</div>
@@ -595,59 +627,59 @@
             <div class="demo-cell">1</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: repeat(6, 1fr);">
-            <div class="demo-cell" style="grid-column: span 1;">grid-c-2</div>
-            <div class="demo-cell" style="grid-column: span 1;">grid-c-2</div>
-            <div class="demo-cell" style="grid-column: span 1;">grid-c-2</div>
-            <div class="demo-cell" style="grid-column: span 1;">grid-c-2</div>
-            <div class="demo-cell" style="grid-column: span 1;">grid-c-2</div>
-            <div class="demo-cell" style="grid-column: span 1;">grid-c-2</div>
+          <div class="grid-demo" style="grid-template-columns: repeat(6, 1fr)">
+            <div class="demo-cell" style="grid-column: span 1">grid-c-2</div>
+            <div class="demo-cell" style="grid-column: span 1">grid-c-2</div>
+            <div class="demo-cell" style="grid-column: span 1">grid-c-2</div>
+            <div class="demo-cell" style="grid-column: span 1">grid-c-2</div>
+            <div class="demo-cell" style="grid-column: span 1">grid-c-2</div>
+            <div class="demo-cell" style="grid-column: span 1">grid-c-2</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="grid-demo" style="grid-template-columns: repeat(4, 1fr)">
             <div class="demo-cell">grid-c-3</div>
             <div class="demo-cell">grid-c-3</div>
             <div class="demo-cell">grid-c-3</div>
             <div class="demo-cell">grid-c-3</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="grid-demo" style="grid-template-columns: repeat(3, 1fr)">
             <div class="demo-cell">grid-c-4</div>
             <div class="demo-cell">grid-c-4</div>
             <div class="demo-cell">grid-c-4</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 5fr 7fr;">
+          <div class="grid-demo" style="grid-template-columns: 5fr 7fr">
             <div class="demo-cell">grid-c-5</div>
             <div class="demo-cell">grid-c-7</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 1fr 1fr;">
+          <div class="grid-demo" style="grid-template-columns: 1fr 1fr">
             <div class="demo-cell">grid-c-6</div>
             <div class="demo-cell">grid-c-6</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 8fr 4fr;">
+          <div class="grid-demo" style="grid-template-columns: 8fr 4fr">
             <div class="demo-cell">grid-c-8</div>
             <div class="demo-cell">grid-c-4</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 9fr 3fr;">
+          <div class="grid-demo" style="grid-template-columns: 9fr 3fr">
             <div class="demo-cell">grid-c-9</div>
             <div class="demo-cell">grid-c-3</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 10fr 2fr;">
+          <div class="grid-demo" style="grid-template-columns: 10fr 2fr">
             <div class="demo-cell">grid-c-10</div>
             <div class="demo-cell">grid-c-2</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 11fr 1fr;">
+          <div class="grid-demo" style="grid-template-columns: 11fr 1fr">
             <div class="demo-cell">grid-c-11</div>
             <div class="demo-cell">grid-c-1</div>
           </div>
 
-          <div class="grid-demo" style="grid-template-columns: 1fr;">
+          <div class="grid-demo" style="grid-template-columns: 1fr">
             <div class="demo-cell">grid-c-12</div>
           </div>
         </section>
@@ -655,18 +687,27 @@
         <!-- Column Start -->
         <section id="column-start" class="demo-section">
           <h2>Column Start Position</h2>
-          <p>Use <code>.grid-c-start-{n}</code> to pin a column to a specific grid line (1–12).</p>
+          <p>
+            Use <code>.grid-c-start-{n}</code> to pin a column to a specific
+            grid line (1–12).
+          </p>
           <div class="grid-r">
             <div class="grid-c-3"><p>grid-c-3 (starts at 1)</p></div>
           </div>
           <div class="grid-r">
-            <div class="grid-c-3 grid-c-start-4"><p>grid-c-3 grid-c-start-4</p></div>
+            <div class="grid-c-3 grid-c-start-4">
+              <p>grid-c-3 grid-c-start-4</p>
+            </div>
           </div>
           <div class="grid-r">
-            <div class="grid-c-3 grid-c-start-7"><p>grid-c-3 grid-c-start-7</p></div>
+            <div class="grid-c-3 grid-c-start-7">
+              <p>grid-c-3 grid-c-start-7</p>
+            </div>
           </div>
           <div class="grid-r">
-            <div class="grid-c-3 grid-c-start-10"><p>grid-c-3 grid-c-start-10</p></div>
+            <div class="grid-c-3 grid-c-start-10">
+              <p>grid-c-3 grid-c-start-10</p>
+            </div>
           </div>
         </section>
 
@@ -692,8 +733,12 @@
         <section id="content-placement" class="demo-section">
           <h2>Content Placement</h2>
           <p>Pattern: <code>.place-{vertical}-{horizontal}</code></p>
-          <p>Vertical: <code>t</code> = top (start) · <code>c</code> = center · <code>b</code> = bottom (end)<br>
-             Horizontal: <code>l</code> = left (start) · <code>c</code> = center · <code>r</code> = right (end)</p>
+          <p>
+            Vertical: <code>t</code> = top (start) · <code>c</code> = center ·
+            <code>b</code> = bottom (end)<br />
+            Horizontal: <code>l</code> = left (start) · <code>c</code> = center
+            · <code>r</code> = right (end)
+          </p>
           <div class="place-legend">
             <div>.place-t-l</div>
             <div>.place-t-c</div>
@@ -721,47 +766,61 @@
         <!-- Flexbox Justify -->
         <section id="flexbox-justify" class="demo-section">
           <h2>Flexbox Justify Utilities</h2>
-          <p>Applied to a grid column, these set <code>display: flex</code> and <code>justify-content</code> on its children.</p>
+          <p>
+            Applied to a grid column, these set <code>display: flex</code> and
+            <code>justify-content</code> on its children.
+          </p>
 
           <h3><code>.justify-start</code></h3>
           <div class="grid-r">
             <div class="grid-c-12 justify-start">
-              <p>Item A</p><p>Item B</p><p>Item C</p>
+              <p>Item A</p>
+              <p>Item B</p>
+              <p>Item C</p>
             </div>
           </div>
 
           <h3><code>.justify-end</code></h3>
           <div class="grid-r">
             <div class="grid-c-12 justify-end">
-              <p>Item A</p><p>Item B</p><p>Item C</p>
+              <p>Item A</p>
+              <p>Item B</p>
+              <p>Item C</p>
             </div>
           </div>
 
           <h3><code>.justify-center</code></h3>
           <div class="grid-r">
             <div class="grid-c-12 justify-center">
-              <p>Item A</p><p>Item B</p><p>Item C</p>
+              <p>Item A</p>
+              <p>Item B</p>
+              <p>Item C</p>
             </div>
           </div>
 
           <h3><code>.justify-between</code></h3>
           <div class="grid-r">
             <div class="grid-c-12 justify-between">
-              <p>Left</p><p>Right</p>
+              <p>Left</p>
+              <p>Right</p>
             </div>
           </div>
 
           <h3><code>.justify-around</code></h3>
           <div class="grid-r">
             <div class="grid-c-12 justify-around">
-              <p>Item</p><p>Item</p><p>Item</p>
+              <p>Item</p>
+              <p>Item</p>
+              <p>Item</p>
             </div>
           </div>
 
           <h3><code>.justify-evenly</code></h3>
           <div class="grid-r">
             <div class="grid-c-12 justify-evenly">
-              <p>Item</p><p>Item</p><p>Item</p>
+              <p>Item</p>
+              <p>Item</p>
+              <p>Item</p>
             </div>
           </div>
         </section>
@@ -769,7 +828,10 @@
         <!-- Intrinsic Sizing -->
         <section id="intrinsic-sizing" class="demo-section">
           <h2>Intrinsic Sizing: min / max / fit</h2>
-          <p>These exit the column-span system and size to content instead. <code>grid-column</code> is set to <code>auto</code>.</p>
+          <p>
+            These exit the column-span system and size to content instead.
+            <code>grid-column</code> is set to <code>auto</code>.
+          </p>
 
           <h3><code>.grid-c-min</code> — shrinks to smallest word width</h3>
           <div class="grid-r">
@@ -778,9 +840,14 @@
             <div class="grid-c-min"><p>X</p></div>
           </div>
 
-          <h3><code>.grid-c-max</code> — expands to full content width (no line wrapping)</h3>
+          <h3>
+            <code>.grid-c-max</code> — expands to full content width (no line
+            wrapping)
+          </h3>
           <div class="grid-r">
-            <div class="grid-c-max"><p>This expands to its full natural content width</p></div>
+            <div class="grid-c-max">
+              <p>This expands to its full natural content width</p>
+            </div>
           </div>
 
           <h3><code>.grid-c-fit</code> — fits content, allows wrapping</h3>
@@ -801,12 +868,25 @@
         <section id="container-queries" class="demo-section">
           <h2>How Container Queries Work</h2>
           <div class="callout">
-            <p><strong>Container queries</strong> let elements respond to their <em>container's</em> size, not the viewport. The same component stacks in a narrow sidebar and goes two-column in a wide main area — identical HTML, no JS.</p>
-            <p><strong>In dot-grid:</strong> <code>.grid-r</code> is the named container (<code>container-name: grid</code>). <code>.grid-c-md-6</code> fires when <em>that row</em> is ≥768px — regardless of how wide the browser window is.</p>
+            <p>
+              <strong>Container queries</strong> let elements respond to their
+              <em>container's</em> size, not the viewport. The same component
+              stacks in a narrow sidebar and goes two-column in a wide main area
+              — identical HTML, no JS.
+            </p>
+            <p>
+              <strong>In dot-grid:</strong> <code>.grid-r</code> is the named
+              container (<code>container-name: grid</code>).
+              <code>.grid-c-md-6</code> fires when <em>that row</em> is ≥768px —
+              regardless of how wide the browser window is.
+            </p>
           </div>
 
           <h3>Side-by-Side: Same markup, different container widths</h3>
-          <p>Both boxes below use identical HTML. The narrow one stays stacked; the wide one becomes two columns.</p>
+          <p>
+            Both boxes below use identical HTML. The narrow one stays stacked;
+            the wide one becomes two columns.
+          </p>
           <div class="comparison">
             <div>
               <span class="demo-label">Narrow container (&lt;768px)</span>
@@ -816,7 +896,9 @@
                   <div class="grid-c-12 grid-c-md-6"><p>grid-c-md-6</p></div>
                 </div>
               </div>
-              <p style="margin-top: 0.8rem; font-size: 1.3rem; color: #666;">Stacked — container is &lt;768px</p>
+              <p style="margin-top: 0.8rem; font-size: 1.3rem; color: #666">
+                Stacked — container is &lt;768px
+              </p>
             </div>
             <div>
               <span class="demo-label">Wide container (≥768px)</span>
@@ -826,7 +908,9 @@
                   <div class="grid-c-12 grid-c-md-6"><p>grid-c-md-6</p></div>
                 </div>
               </div>
-              <p style="margin-top: 0.8rem; font-size: 1.3rem; color: #666;">Two columns — container is ≥768px</p>
+              <p style="margin-top: 0.8rem; font-size: 1.3rem; color: #666">
+                Two columns — container is ≥768px
+              </p>
             </div>
           </div>
 
@@ -835,31 +919,78 @@
           <div class="sidebar-main-demo">
             <div class="demo-pane">
               <div class="demo-pane-title">Sidebar (250px)</div>
-              <div class="grid-r" style="background: #ffffff; padding: 1rem; border-radius: 5px; border: 1px solid #e0e0e0;">
-                <div class="grid-c-12 grid-c-md-6" style="min-height: 5rem; font-size: 1.2rem;">Widget</div>
-                <div class="grid-c-12 grid-c-md-6" style="min-height: 5rem; font-size: 1.2rem;">Widget</div>
+              <div
+                class="grid-r"
+                style="
+                  background: #ffffff;
+                  padding: 1rem;
+                  border-radius: 5px;
+                  border: 1px solid #e0e0e0;
+                "
+              >
+                <div
+                  class="grid-c-12 grid-c-md-6"
+                  style="min-height: 5rem; font-size: 1.2rem"
+                >
+                  Widget
+                </div>
+                <div
+                  class="grid-c-12 grid-c-md-6"
+                  style="min-height: 5rem; font-size: 1.2rem"
+                >
+                  Widget
+                </div>
               </div>
               <p class="demo-pane-caption">Stacked — sidebar is too narrow</p>
             </div>
             <div class="demo-pane">
               <div class="demo-pane-title">Main Content (wide)</div>
-              <div class="grid-r" style="background: #ffffff; padding: 1rem; border-radius: 5px; border: 1px solid #e0e0e0;">
-                <div class="grid-c-12 grid-c-md-6" style="min-height: 5rem; font-size: 1.2rem;">Widget</div>
-                <div class="grid-c-12 grid-c-md-6" style="min-height: 5rem; font-size: 1.2rem;">Widget</div>
+              <div
+                class="grid-r"
+                style="
+                  background: #ffffff;
+                  padding: 1rem;
+                  border-radius: 5px;
+                  border: 1px solid #e0e0e0;
+                "
+              >
+                <div
+                  class="grid-c-12 grid-c-md-6"
+                  style="min-height: 5rem; font-size: 1.2rem"
+                >
+                  Widget
+                </div>
+                <div
+                  class="grid-c-12 grid-c-md-6"
+                  style="min-height: 5rem; font-size: 1.2rem"
+                >
+                  Widget
+                </div>
               </div>
               <p class="demo-pane-caption">Two columns — wide enough</p>
             </div>
           </div>
-          <div class="callout" style="margin-top: 2rem;">
-            <p><strong>The magic:</strong> The <em>same component</em> adapts differently based on where it's placed. This is impossible with viewport (media) queries alone.</p>
+          <div class="callout" style="margin-top: 2rem">
+            <p>
+              <strong>The magic:</strong> The <em>same component</em> adapts
+              differently based on where it's placed. This is impossible with
+              viewport (media) queries alone.
+            </p>
           </div>
         </section>
 
         <!-- Responsive Columns -->
         <section id="responsive-columns" class="demo-section">
           <h2>Responsive Columns</h2>
-          <p>Combine a base class with responsive overrides. The responsive class takes effect when the <em>row container</em> reaches the breakpoint.</p>
-          <p>Breakpoints: <code>sm</code> 640px · <code>md</code> 768px · <code>lg</code> 1024px · <code>xl</code> 1280px · <code>xxl</code> 1536px</p>
+          <p>
+            Combine a base class with responsive overrides. The responsive class
+            takes effect when the <em>row container</em> reaches the breakpoint.
+          </p>
+          <p>
+            Breakpoints: <code>sm</code> 640px · <code>md</code> 768px ·
+            <code>lg</code> 1024px · <code>xl</code> 1280px ·
+            <code>xxl</code> 1536px
+          </p>
           <div class="grid-r">
             <div class="grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3">
               <p>grid-c-12 grid-c-sm-10 grid-c-md-6 grid-c-lg-3</p>
@@ -893,14 +1024,19 @@
         <!-- Responsive Column Start -->
         <section id="responsive-start" class="demo-section">
           <h2>Responsive Column Start</h2>
-          <p>Use <code>.grid-c-start-{bp}-{n}</code> to change start position at a breakpoint.</p>
+          <p>
+            Use <code>.grid-c-start-{bp}-{n}</code> to change start position at
+            a breakpoint.
+          </p>
           <div class="grid-r">
             <div class="grid-c-10 grid-c-start-3 grid-c-md-7 grid-c-start-md-6">
               <p>grid-c-10 grid-c-start-3 grid-c-md-7 grid-c-start-md-6</p>
             </div>
           </div>
           <div class="grid-r">
-            <div class="grid-c-md-9 grid-c-start-md-4 grid-c-start-lg-7 grid-c-lg-6">
+            <div
+              class="grid-c-md-9 grid-c-start-md-4 grid-c-start-lg-7 grid-c-lg-6"
+            >
               <p>grid-c-md-9 grid-c-start-md-4 grid-c-start-lg-7 grid-c-lg-6</p>
             </div>
           </div>
@@ -909,27 +1045,46 @@
         <!-- Responsive Display Utilities -->
         <section id="display-utilities" class="demo-section">
           <h2>Responsive Display Utilities</h2>
-          <p>These fire when the parent <code>.grid-r</code> container reaches the breakpoint.</p>
+          <p>
+            These fire when the parent <code>.grid-r</code> container reaches
+            the breakpoint.
+          </p>
           <ul>
-            <li><code>.hidden-{bp}</code> — <code>display: none</code> at ≥bp</li>
-            <li><code>.block-{bp}</code> — <code>display: block</code> at ≥bp</li>
+            <li>
+              <code>.hidden-{bp}</code> — <code>display: none</code> at ≥bp
+            </li>
+            <li>
+              <code>.block-{bp}</code> — <code>display: block</code> at ≥bp
+            </li>
             <li><code>.flex-{bp}</code> — <code>display: flex</code> at ≥bp</li>
             <li><code>.grid-{bp}</code> — <code>display: grid</code> at ≥bp</li>
           </ul>
 
-          <h3><code>.hidden-md</code> — visible below 768px, hidden at ≥768px</h3>
-          <p>The pink cell disappears when its row container is ≥768px wide. The first demo is full-width (triggers hidden-md), the second is constrained to 400px (does not trigger it).</p>
+          <h3>
+            <code>.hidden-md</code> — visible below 768px, hidden at ≥768px
+          </h3>
+          <p>
+            The pink cell disappears when its row container is ≥768px wide. The
+            first demo is full-width (triggers hidden-md), the second is
+            constrained to 400px (does not trigger it).
+          </p>
 
           <span class="demo-label">Wide row (≥768px) — pink cell hidden</span>
           <div class="grid-r">
-            <div class="grid-c-12 hidden-md demo-will-hide"><p>hidden-md (row ≥768px — you won't see this)</p></div>
+            <div class="grid-c-12 hidden-md demo-will-hide">
+              <p>hidden-md (row ≥768px — you won't see this)</p>
+            </div>
             <div class="grid-c-12"><p>Always visible</p></div>
           </div>
 
-          <span class="demo-label">Narrow container (400px &lt; 768px) — pink cell visible</span>
+          <span class="demo-label"
+            >Narrow container (400px &lt; 768px) — pink cell visible</span
+          >
           <div class="container-narrow">
             <div class="grid-r">
-              <div class="grid-c-12 hidden-md demo-will-hide"><p>hidden-md (row &lt;768px — visible)</p></div>
+              <div class="grid-c-12 hidden-md demo-will-hide">
+                <p>hidden-md (row &lt;768px — visible)</p>
+              </div>
               <div class="grid-c-12"><p>Always visible</p></div>
             </div>
           </div>
@@ -986,7 +1141,11 @@
         <!-- Subgrid -->
         <section id="subgrid" class="demo-section">
           <h2>Subgrid</h2>
-          <p><code>.grid-r-subgrid</code> makes a grid item inherit its parent's column tracks (<code>grid-template-columns: subgrid</code>). Use it to align nested content across the parent grid.</p>
+          <p>
+            <code>.grid-r-subgrid</code> makes a grid item inherit its parent's
+            column tracks (<code>grid-template-columns: subgrid</code>). Use it
+            to align nested content across the parent grid.
+          </p>
           <pre><code>&lt;div class="grid-r"&gt;
   &lt;div class="grid-r-subgrid"&gt;  &lt;!-- spans 1/-1, inherits parent columns --&gt;
     &lt;div class="grid-c-4"&gt;Nested 1&lt;/div&gt;
@@ -1001,13 +1160,23 @@
               <div class="grid-c-4"><p>Nested 3 (grid-c-4)</p></div>
             </div>
           </div>
-          <p><code>.grid-c-subgrid</code> is the row counterpart: it inherits the parent's <em>row</em> tracks (<code>grid-template-rows: subgrid; grid-row: 1 / -1</code>). Use it for equal-height card content alignment across a row.</p>
+          <p>
+            <code>.grid-c-subgrid</code> is the row counterpart: it inherits the
+            parent's <em>row</em> tracks (<code
+              >grid-template-rows: subgrid; grid-row: 1 / -1</code
+            >). Use it for equal-height card content alignment across a row.
+          </p>
         </section>
 
         <!-- Nested Rows -->
         <section id="nested-rows" class="demo-section">
           <h2>Nested Rows</h2>
-          <p>A <code>.grid-r</code> placed as a direct child of another <code>.grid-r</code> automatically spans all 12 columns (<code>grid-column: 1 / -1</code>) and removes its bottom padding to avoid double-spacing.</p>
+          <p>
+            A <code>.grid-r</code> placed as a direct child of another
+            <code>.grid-r</code> automatically spans all 12 columns (<code
+              >grid-column: 1 / -1</code
+            >) and removes its bottom padding to avoid double-spacing.
+          </p>
           <div class="grid-r">
             <div class="grid-c-4"><p>grid-c-4</p></div>
             <div class="grid-c-4"><p>grid-c-4</p></div>
@@ -1026,10 +1195,13 @@
         <!-- CSS Variable Overrides -->
         <section id="css-variables" class="demo-section">
           <h2>CSS Variable Overrides</h2>
-          <p>Override dot-grid defaults at any scope — globally on <code>:root</code>, or scoped inline to a specific wrapper or row.</p>
+          <p>
+            Override dot-grid defaults at any scope — globally on
+            <code>:root</code>, or scoped inline to a specific wrapper or row.
+          </p>
 
           <h3>Custom column count: <code>--grid-columns: 8</code></h3>
-          <div class="grid-r" style="--grid-columns: 8;">
+          <div class="grid-r" style="--grid-columns: 8">
             <div class="grid-c-2"><p>grid-c-2 of 8</p></div>
             <div class="grid-c-2"><p>grid-c-2 of 8</p></div>
             <div class="grid-c-2"><p>grid-c-2 of 8</p></div>
@@ -1037,7 +1209,7 @@
           </div>
 
           <h3>Custom gap: <code>--grid-gap: 0.5rem</code></h3>
-          <div class="grid-r" style="--grid-gap: 0.5rem;">
+          <div class="grid-r" style="--grid-gap: 0.5rem">
             <div class="grid-c-4"><p>grid-c-4</p></div>
             <div class="grid-c-4"><p>grid-c-4</p></div>
             <div class="grid-c-4"><p>grid-c-4</p></div>
@@ -1082,27 +1254,43 @@
           </table>
 
           <div class="callout">
-            <p><strong>Note on <code>--grid-bp-*</code> variables:</strong> dot-grid exposes <code>--grid-bp-sm</code>, <code>--grid-bp-md</code>, etc. as <code>:root</code> variables for documentation purposes, but they are <strong>read-only metadata</strong>. CSS custom properties cannot be evaluated inside <code>@container</code> or <code>@media</code> conditions — <code>@media (min-width: var(--grid-bp-md))</code> does not work. Use the literal pixel values (640px, 768px, 1024px, 1280px, 1536px) in your own queries.</p>
+            <p>
+              <strong>Note on <code>--grid-bp-*</code> variables:</strong>
+              dot-grid exposes <code>--grid-bp-sm</code>,
+              <code>--grid-bp-md</code>, etc. as <code>:root</code> variables
+              for documentation purposes, but they are
+              <strong>read-only metadata</strong>. CSS custom properties cannot
+              be evaluated inside <code>@container</code> or
+              <code>@media</code> conditions —
+              <code>@media (min-width: var(--grid-bp-md))</code> does not work.
+              Use the literal pixel values (640px, 768px, 1024px, 1280px,
+              1536px) in your own queries.
+            </p>
           </div>
         </section>
-
       </main>
     </div>
 
     <script>
       const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(e => {
+        (entries) => {
+          entries.forEach((e) => {
             if (e.isIntersecting) {
-              document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-              const a = document.querySelector(`.sidebar-link[href="#${e.target.id}"]`);
-              if (a) a.classList.add('active');
+              document
+                .querySelectorAll('.sidebar-link')
+                .forEach((l) => l.classList.remove('active'))
+              const a = document.querySelector(
+                `.sidebar-link[href="#${e.target.id}"]`,
+              )
+              if (a) a.classList.add('active')
             }
-          });
+          })
         },
-        { rootMargin: '-20% 0px -70% 0px' }
-      );
-      document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+        { rootMargin: '-20% 0px -70% 0px' },
+      )
+      document
+        .querySelectorAll('section[id]')
+        .forEach((s) => observer.observe(s))
     </script>
   </body>
 </html>

@@ -1,18 +1,17 @@
 # dot-grid
 
-A modern, flexible CSS Grid system with container queries, fluid layouts, and subgrid support.
+A modern, flexible CSS Grid system with container queries, and subgrid support.
 
 ## ✨ Features
 
 - **Modern CSS Grid** - Built on native CSS Grid (not flexbox or floats)
 - **Container Queries** - Responsive classes based on container size, not viewport
-- **Fluid Layouts** - Auto-responsive utilities that adapt without breakpoints
 - **Subgrid Support** - Perfect alignment for nested grids
 - **CSS Custom Properties** - Easy customization via CSS variables
 - **Cascade Layers** - Better specificity control
 - **Logical Properties** - Automatic RTL support
 - **Zero JavaScript** - Pure CSS solution
-- **28KB / 19KB minified** - Lightweight and performant
+- **~12KB / ~8KB minified** - Lightweight and performant
 
 ## 📦 Installation
 
@@ -157,55 +156,6 @@ Perfect alignment for nested grids:
 </div>
 ```
 
-### Fluid/Automatic Layouts
-
-#### Auto-fit Grid
-
-Automatically fits as many columns as possible:
-
-```html
-<div class="grid-auto-fit">
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-  <!-- Items wrap automatically when space runs out -->
-</div>
-
-<!-- Customize minimum column width -->
-<div class="grid-auto-fit" style="--grid-auto-min: 300px">
-  <div>Wider items</div>
-</div>
-```
-
-#### Fluid Row Patterns
-
-```html
-<!-- Adapts to 2 columns on larger screens -->
-<div class="grid-r-fluid-2">
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-</div>
-
-<!-- Also available: grid-r-fluid-3, grid-r-fluid-4 -->
-```
-
-#### RAM Pattern (Repeat Auto Minmax)
-
-```html
-<div class="grid-r-ram" style="--col-min: 250px">
-  <div>Equal column 1</div>
-  <div>Equal column 2</div>
-  <div>Equal column 3</div>
-</div>
-```
-
-#### Other Fluid Patterns
-
-- `.grid-r-intrinsic` - Columns size based on content
-- `.grid-r-even` - Even columns sharing space equally
-- `.grid-r-dense` - Fills gaps in the grid (masonry style)
-
 ### Content Placement
 
 Place items within a grid cell using `place-{vertical}-{horizontal}`. Sets `display: grid` + `align-items` + `justify-items` on the column.
@@ -307,10 +257,7 @@ You can also override the configuration at runtime using CSS Custom Properties. 
   /* Change container max width */
   --grid-w-max-width: 1400px;
   --grid-w-width: 95vw;
-
-  /* Customize fluid layouts */
-  --grid-auto-min: 300px; /* For grid-auto-fit */
-  --grid-c-min-width: 250px; /* For grid-c-fluid */
+  --grid-w-min-width: 36vw;
 }
 ```
 
@@ -325,21 +272,7 @@ For older browsers, the basic grid system will still work. Container queries wil
 
 ## 📝 Examples
 
-See the `/examples` directory for complete working examples:
-
-- `basic.html` - Core grid features
-- `container-queries.html` - Container query responsive layouts
-- `fluid-layout.html` - Auto-responsive fluid grids
-- `subgrid.html` - Subgrid alignment examples
-
-### New Features (Additive)
-
-- Subgrid support
-- Fluid layout utilities
-- More gap utilities
-- Aspect ratio utilities
-- Display utilities
-- CSS custom properties
+See `/examples/example.html` for a complete interactive demo covering all features above.
 
 ## 📄 License
 
